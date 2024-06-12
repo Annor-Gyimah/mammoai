@@ -313,6 +313,26 @@ body {
     pointer-events: unset;
 }
 
+#content main .head-title .right-head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+#content main .head-title .btn-add {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 36px;
+    background: var(--orange);
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    font-weight: 500;
+}
+
 #content main .head-title .btn-download {
     height: 36px;
     padding: 0 16px;
