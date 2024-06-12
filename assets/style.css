@@ -610,3 +610,26 @@ body {
         overflow-x: hidden;
     }
 }
+
+/* upload image box */
+#content main .upload-cont {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    width: 100%;
+    color: var(--dark);
+    background: var(--light);
+    border-radius: 20px;
+}
+
+#content main .upload-cont> div {
+    border-radius: 20px;
+    background: var(--light);
+    padding: 24px auto;
+    margin: 20px auto;
+    overflow-x: auto;
+    height: 20rem;
+    width: 90%;
+    border: 2px dashed var(--blue);
+}
