@@ -671,8 +671,10 @@ body {
 
 footer {
     display: flex;
+    padding: 1rem 0;
     background: var(--light);
     color: var(--dark);
     justify-content: center;
     align-items: center;
+    font-family: var(--lato);
 }
