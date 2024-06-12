@@ -463,6 +463,18 @@ body {
     object-fit: cover;
 }
 
+#content main .table-data .record table td .report-link {
+    color: var(--blue);
+}
+
+#content main .table-data .record table td .report-link:hover {
+    text-decoration: underline;
+}
+
+#content main .table-data .record table td .delete {
+    color: var(--red);
+}
+
 #content main .table-data .record table tbody tr:hover {
     background-color: var(--grey);
 }
