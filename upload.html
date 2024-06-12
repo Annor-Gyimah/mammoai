@@ -14,8 +14,8 @@
             <span class="text">MammoAi</span>
         </a>
         <ul class="side-menu top">
-            <li class="active">
-                <a href="#">
+            <li>
+                <a href="index.html">
                     <i class="fa fa-dashboard"></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -30,6 +30,12 @@
                 <a href="new_patient.html">
                     <i class="fa fa-plus-circle"></i>
                     <span class="text">Add Patient</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="upload.html">
+                    <i class="fa fa-cloud-upload"></i>
+                    <span class="text">Upload Mammograph</span>
                 </a>
             </li>
             <li>
@@ -64,7 +70,6 @@
     <section id="content">
         <nav>
             <i class="fa fa-bars"></i>
-            <a href="" class="nav-link">Categories</a>
             <form action="#">
                 <div class="form-input">
                     <input type="search" name="" id="" placeholder="Search...">
@@ -83,49 +88,27 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>New Patient</h1>
+                    <h1>Image Analysis</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="">Dashboard</a>
                         </li>
                         <li><i class="fa fa-chevron-right"></i></li>
                         <li>
-                            <a href="" class="active">Add Patient</a>
+                            <a href="" class="active">Upload Mammograph</a>
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="btn-download">
-                    <i class="fa fa-cloud-download"></i>
-                    <span class="text">Download PDF</span>
-                </a>
             </div>
 
-            <ul class="box-info">
-                <li>
-                    <i class="fa fa-calendar"></i>
-                    <span class="text">
-                        <h3>Welcome Radiologist</h3>
-                        <p>June 20, 2024</p>
-                    </span>
-                </li>
-                <li>
-                    <i class="fa fa-group"></i>
-                    <span class="text">
-                        <h3>2834</h3>
-                        <p>Visitors</p>
-                    </span>
-                </li>
-                <li>
-                    <i class="fa fa-dollar"></i>
-                    <span class="text">
-                        <h3>$2543</h3>
-                        <p>Total Sales</p>
-                    </span>
-                </li>
-            </ul>
+            <!-- upload image -->
             <div class="upload-cont">
-                <div class="">
-                    
+                <div>
+                    <i class="fa fa-image"></i>
+                    <h2>Drag and drop image here</h2>
+                    <h3>OR</h3>
+                    <button>Select image</button>
+                    <input type="file" name="" id="" hidden>
                 </div>
             </div>
         </main>

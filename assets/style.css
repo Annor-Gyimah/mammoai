@@ -624,12 +624,55 @@ body {
 }
 
 #content main .upload-cont> div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 20px;
-    background: var(--light);
+    background: var(--light-blue);
     padding: 24px auto;
     margin: 20px auto;
     overflow-x: auto;
     height: 20rem;
     width: 90%;
     border: 2px dashed var(--blue);
+}
+
+#content main .upload-cont> div i {
+    font-size: 45px;
+    margin: 10px 0;
+}
+
+#content main .upload-cont> div h2, #content main .upload-cont> div h3 {
+    margin: 5px 5px;
+    text-align: center;
+}
+
+#content main .upload-cont> div button {
+    height: 36px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 36px;
+    background: var(--blue);
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#content main .upload-cont> div button:hover {
+    background-color: #3c91e6b6;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    background: var(--light);
+    color: var(--dark);
+    justify-content: center;
+    align-items: center;
 }
