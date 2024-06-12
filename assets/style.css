@@ -427,47 +427,47 @@ body {
     cursor: pointer;
 }
 
-#content main .table-data .order {
+#content main .table-data .record {
     flex-grow: 1;
     flex-basis: 500px;
 }
 
-#content main .table-data .order table {
+#content main .table-data .record table {
     width: 100%;
     border-collapse: collapse;
     min-width: 420px;
 }
 
-#content main .table-data .order table th{
+#content main .table-data .record table th{
     padding-bottom: 12px;
     font-size: 13px;
     text-align: left;
     border-bottom: 1px solid var(--grey);
 }
 
-#content main .table-data .order table td {
+#content main .table-data .record table td {
     padding: 16px 0;
 }
 
-#content main .table-data .order table tr td:first-child {
+#content main .table-data .record table tr td:first-child {
     display: flex;
     align-items: center;
     grid-gap: 12px;
     padding-left: 6px;
 }
 
-#content main .table-data .order table td img {
+#content main .table-data .record table td img {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-#content main .table-data .order table tbody tr:hover {
+#content main .table-data .record table tbody tr:hover {
     background-color: var(--grey);
 }
 
-#content main .table-data .order table tr td .status {
+#content main .table-data .record table tr td .status {
     font-size: 10px;
     padding: 6px 16px;
     color: var(--light);
@@ -476,15 +476,15 @@ body {
     font-weight: 700;
 }
 
-#content main .table-data .order table tr td .status.completed {
+#content main .table-data .record table tr td .status.completed {
     background: var(--blue);
 }
 
-#content main .table-data .order table tr td .status.process {
+#content main .table-data .record table tr td .status.process {
     background: var(--yellow);
 }
 
-#content main .table-data .order table tr td .status.pending {
+#content main .table-data .record table tr td .status.pending {
     background: var(--orange);
 }
 
@@ -585,15 +585,15 @@ body {
         min-width: 50%;
     }
 
-    #content main .table-data .order table {
+    #content main .table-data .record table {
         min-width: 100%;
     }
 
-    #content main .table-data .order table td {
+    #content main .table-data .record table td {
         font-size: 12px;
     }
 
-    #content main .table-data .order {
+    #content main .table-data .record {
         width: 300px;
         overflow-x: hidden;
     }
