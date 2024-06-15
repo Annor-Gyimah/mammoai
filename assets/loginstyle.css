@@ -13,7 +13,7 @@
     height: 30rem;
     margin: calc((100vh - 30rem)/2) auto;
     background: #fff;
-    width: fit-content;
+    max-width: 90vw;
     font-family: 'Lato', sans-serif;
     border-radius: 20px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -76,7 +76,6 @@
     height: 2rem;
     background: #3c91e6;
     border-radius: 1rem;
-
 }
 
 .form-cont form .forgot{
@@ -87,4 +86,47 @@ hr {
     background: #d3cbcb;
     margin: 1px;
     width: 100%;
+}
+
+.sign-with{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* responsiveness */
+
+@media (max-width: 780px) {
+    .container{
+      flex-direction: column;
+      width: fit-content;
+    }
+
+    .img-cont {
+      display: none;
+    }
+
+    .form-cont {
+      width: 90vw;
+      margin: 0;
+      border-radius: 20px;
+    }
+
+    .form-cont form{
+        width: 100%;
+    }
+
+    .form-cont form .input-box{
+        max-width: 90%;
+    }
+
+    hr {
+        max-width: 90%;
+    }
+
+    .sign-with{
+        flex-direction: column;
+      }
 }
