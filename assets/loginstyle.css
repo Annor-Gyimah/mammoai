@@ -133,7 +133,8 @@ hr {
 @media (max-width: 780px) {
     .container{
       flex-direction: column;
-      width: fit-content;
+      max-width: 90vw;
+      height: fit-content;
     }
 
     .img-cont {
