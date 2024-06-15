@@ -43,6 +43,11 @@
     margin: 1rem 3rem;
 }
 
+.brand {
+    font-size: 2rem;
+    color: #3c91e6;
+}
+
 .form-cont form{
     display: flex;
     flex-direction: column;
