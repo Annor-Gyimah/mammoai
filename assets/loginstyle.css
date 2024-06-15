@@ -143,7 +143,7 @@ hr {
 
     .form-cont {
       width: 90vw;
-      margin: 0;
+      margin: 1rem auto;
       border-radius: 20px;
     }
 
