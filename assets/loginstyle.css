@@ -1,9 +1,26 @@
+:root {
+    --poppins: 'Poppins', sans-serif;
+    --lato: 'Lato', sans-serif;
+
+    --light: #f9f9f9;
+    --blue: #3c91e6;
+    --light-blue: #cfe8ff;
+    --grey: #eee;
+    --dark-grey: #aaaaaa;
+    --dark: #342e37;
+    --red: #db504a;
+    --yellow: #ffce28;
+    --light-yellow: #fff2c6;
+    --orange: #fd7238;
+    --light-orange: #ffe0d3;
+}
+
 .bg-holder {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3c91e6;
+    background-color: #3c91e69e;
     background-repeat: no-repeat;
 }
 .container {
@@ -12,7 +29,7 @@
     align-items: center;
     height: 30rem;
     margin: calc((100vh - 30rem)/2) auto;
-    background: #fff;
+    background: var(--light);
     max-width: 90vw;
     font-family: 'Lato', sans-serif;
     border-radius: 20px;
@@ -37,7 +54,7 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    background: #fff;
+    background: var(--light);
     height: 100%;
     border-radius: 0 20px 20px 0;
     margin: 1rem 3rem;
@@ -45,7 +62,7 @@
 
 .brand {
     font-size: 2rem;
-    color: #3c91e6;
+    color: var(--blue);
 }
 
 .form-cont form{
@@ -62,11 +79,12 @@
 .form-cont form input{
     width: 100%;
     height: 2.5rem;
-    background: #eae7e7;
+    background: var(--grey);
     border: 1px solid #d3cbcb;
     border-radius: 2rem;
     font-size: 1rem;
     padding: 0.5rem;
+    color: #342e37;
 }
 
 .form-cont button{
@@ -74,21 +92,30 @@
     font-size: 1rem;
     padding: 0.5rem;
     color: #fff;
+    cursor: pointer;
 }
 
 .form-cont .input-box button {
     width: 100%;
     height: 2rem;
-    background: #3c91e6;
+    background: var(--blue);
     border-radius: 1rem;
 }
 
-.form-cont form .forgot{
-    color: #d3cbcb;
+.form-cont .input-box button:hover {
+    background: #4d8ac6;
+}
+
+.form-cont form .forgot {
+    color: var(--dark-grey);
+}
+
+.form-cont form .forgot:hover {
+    color: var(--blue);
 }
 
 hr {
-    background: #d3cbcb;
+    background: var(--grey);
     margin: 1px;
     width: 100%;
 }
