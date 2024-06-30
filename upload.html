@@ -129,8 +129,10 @@
             <!-- upload image -->
             <div class="uploaded-cont">
                 <div id="fileContainer">
+                    <!-- <label for="fileUpload" class="upload-btn">Select File</button>
+                    <input type="file" name="" class="file-upload" id="fileUpload" accept="image/*" hidden> -->
+                    <img id="displayedImage" class="hidden" src="#" onclick="showMarkerArea(this);" />               
                     <div id="loadingBar"></div>
-                    <img id="displayedImage" src="#" onclick="showMarkerArea(this);" />               
                 </div>
             </div>
         </main>
@@ -144,12 +146,12 @@
     <!-- upload modal -->
     <section class="modal" id="uploadModal">
         <div class="upload-cont">
-            <div>
+            <div class="file-cont">
                 <i class="fa fa-image"></i>
-                <h2>Drag and drop image here</h2>
+                <h2 class="drag-n-drop">Drag and drop image here</h2>
                 <h3>OR</h3>
-                <button>Select image</button>
-                <input type="file" name="" id="fileUpload">
+                <label for="fileUpload" class="upload-btn">Select File</button>
+                <input type="file" name="" class="file-upload" id="fileUpload" accept="image/*" hidden>
             </div>
         </div>      
     </section>
@@ -162,6 +164,14 @@
         const displayedImage = document.getElementById('displayedImage');
         const loadingBar = document.getElementById('loadingBar');
         
+        uploadModal.addEventListener('click', function(event) {
+            if (!event.target.classList.contains('upload-cont') && !event.target.classList.contains('upload-cont')
+                && !event.target.classList.contains('file-cont') && !event.target.classList.contains('upload-btn')
+                && !event.target.classList.contains('drag-n-drop') && !event.target.classList.contains('fa-image')) {
+                this.classList.add('hidden');
+            }
+        });
+
         imageUpload.addEventListener('change', function() {
           const file = this.files[0];
           uploadModal.style.display = 'none';
@@ -175,7 +185,9 @@
             };
             reader.onload = function(e) {
               displayedImage.src = e.target.result;
+              displayedImage.classList.remove('hidden');
               loadingBar.style.width = '0%';
+              loadingBar.classList.add('hidden');
             }
             reader.readAsDataURL(file);
           }

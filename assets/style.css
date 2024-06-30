@@ -618,7 +618,7 @@ body {
     text-align: center;
 }
 
-.upload-cont> div button {
+.upload-cont> div label {
     height: 36px;
     padding: 0 16px;
     border: none;
@@ -633,7 +633,7 @@ body {
     cursor: pointer;
 }
 
-.upload-cont> div button:hover {
+.upload-cont> div label:hover {
     background-color: #f48d8d;
 }
 
@@ -661,10 +661,14 @@ body {
     padding: 24px auto;
     margin: 20px auto;
     overflow-x: auto;
-    height: fit-content;
+    max-height: 70vh;
     width: 90%;
 }
 
+.uploaded-cont> div img{
+    max-width: 90%;
+    max-height: 90%;
+}
 #loadingBar {
     width: 0%;
     height: 20px;
@@ -672,6 +676,10 @@ body {
     text-align: center;
     line-height: 20px;
     color: white;
+  }
+
+  .hidden {
+    display: none;
   }
 /* footer */
 
