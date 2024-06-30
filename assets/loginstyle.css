@@ -3,6 +3,7 @@
     --lato: 'Lato', sans-serif;
 
     --light: #f9f9f9;
+    --pink: #f57575;
     --blue: #3c91e6;
     --light-blue: #cfe8ff;
     --grey: #eee;
@@ -20,7 +21,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #3c91e69e;
+    /* background-color: #3c91e69e; */
+    background-color: #f57575;
     background-repeat: no-repeat;
 }
 .container {
@@ -36,7 +38,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(12.9px);
     -webkit-backdrop-filter: blur(12.9px);
-    border: 1px solid rgba(255, 255, 255, 0.26);
+    /* border: 1px solid rgba(255, 255, 255, 0.26); */
 }
 
 .img-cont{
@@ -64,7 +66,7 @@
 
 .brand {
     font-size: 2rem;
-    color: var(--blue);
+    color: var(--pink);
 }
 
 .form-cont form{
@@ -100,7 +102,7 @@
 .form-cont .input-box button {
     width: 100%;
     height: 2rem;
-    background: var(--blue);
+    background: var(--pink);
     border-radius: 1rem;
 }
 
@@ -113,7 +115,7 @@
 }
 
 .form-cont form .forgot:hover {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 hr {

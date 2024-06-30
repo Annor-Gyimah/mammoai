@@ -3,6 +3,8 @@
     --lato: 'Lato', sans-serif;
 
     --light: #f9f9f9;
+    --pink: #f57575;
+    --light-pink: #ebb0b0d1;
     --blue: #3c91e6;
     --light-blue: #cfe8ff;
     --grey: #eee;
@@ -63,7 +65,7 @@ body {
     height: 56px;
     display: flex;
     align-items: center;
-    color: var(--blue);
+    color: var(--pink);
 }
 
 #sidebar .brand .fa {
@@ -91,7 +93,7 @@ body {
 }
 
 #sidebar.hide .side-menu li.active a {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 #sidebar.hide .side-menu li a {
@@ -141,7 +143,7 @@ body {
 }
 
 #sidebar .top li a:hover {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 #sidebar .side-menu li a .fa {
@@ -203,7 +205,7 @@ body {
     transition: .3s ease;
 }
 #content nav .nav-link:hover {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 #content nav form {
@@ -234,7 +236,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--blue);
+    background: var(--pink);
     color: var(--light);
     font-size: 18px;
     border: none;
@@ -309,7 +311,7 @@ body {
 }
 
 #content main .head-title .left .breadcrumb li a.active {
-    color: var(--blue);
+    color: var(--pink);
     pointer-events: unset;
 }
 
@@ -337,7 +339,7 @@ body {
     height: 36px;
     padding: 0 16px;
     border-radius: 36px;
-    background: var(--blue);
+    background: var(--pink);
     color: var(--light);
     display: flex;
     align-items: center;
@@ -375,7 +377,7 @@ body {
 
 #content main .box-info li:nth-child(1) .fa {
     background: var(--light-blue);
-    color: var(--blue);
+    color: var(--pink);
 }
 
 #content main .box-info li:nth-child(2) .fa {
@@ -464,7 +466,7 @@ body {
 }
 
 #content main .table-data .record table td .report-link {
-    color: var(--blue);
+    color: var(--pink);
 }
 
 #content main .table-data .record table td .report-link:hover {
@@ -489,7 +491,7 @@ body {
 }
 
 #content main .table-data .record table tr td .status.completed {
-    background: var(--blue);
+    background: var(--pink);
 }
 
 #content main .table-data .record table tr td .status.process {
@@ -526,7 +528,7 @@ body {
 }
 
 #content main .table-data .todo .todo-list li.completed {
-    border-left: 10px solid var(--blue);
+    border-left: 10px solid var(--pink);
 }
 
 #content main .table-data .todo .todo-list li.not-completed {
@@ -534,7 +536,7 @@ body {
 }
 
 #content main .table-data .todo .todo-list li.completed {
-    border-left: 10px solid var(--blue);
+    border-left: 10px solid var(--pink);
 }
 
 #content main .table-data .todo .todo-list li:last-child {
@@ -558,10 +560,125 @@ body {
 
     #content nav .nav-link {
         display: none;
-    }
+        }
+}
+        
+        
+        /* upload image modal */
+        
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: #504d526e;
+    position: absolute;
+    z-index: 9000;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal .upload-cont{
+    position: relative;
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    color: var(--dark);
+    background: var(--light);
+    border-radius: 20px;
+}
+
+.modal .upload-cont>div{
+    width: 100%;
+    height: 20rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--light-pink);
+    padding: 24px auto;
+    overflow-x: auto;
+    border: 2px dashed var(--pink);
 }
 
 
+.upload-cont> div i {
+    font-size: 45px;
+    margin: 10px 0;
+}
+
+.upload-cont> div h2, .upload-cont> div h3 {
+    margin: 5px 5px;
+    text-align: center;
+}
+
+.upload-cont> div button {
+    height: 36px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 36px;
+    background: var(--pink);
+    color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.upload-cont> div button:hover {
+    background-color: #f48d8d;
+}
+
+
+/* uploaded image */
+
+.uploaded-cont {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    width: 100%;
+    color: var(--dark);
+    background: var(--light);
+    border-radius: 20px;
+}
+
+.uploaded-cont> div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--light-pink);
+    padding: 24px auto;
+    margin: 20px auto;
+    overflow-x: auto;
+    height: fit-content;
+    width: 90%;
+}
+/* footer */
+
+footer {
+    display: flex;
+    padding: 1rem 0;
+    background: var(--light);
+    color: var(--dark);
+    justify-content: center;
+    align-items: center;
+    font-family: var(--lato);
+}
+
+
+
+/* responsiveness */
 @media screen and (max-width: 576px) {
     #content nav form .form-input  input {
         display: none;
@@ -609,72 +726,8 @@ body {
         width: 300px;
         overflow-x: hidden;
     }
-}
 
-/* upload image box */
-#content main .upload-cont {
-    display: flex;
-    flex-wrap: wrap;
-    grid-gap: 24px;
-    margin-top: 24px;
-    width: 100%;
-    color: var(--dark);
-    background: var(--light);
-    border-radius: 20px;
-}
-
-#content main .upload-cont> div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    background: var(--light-blue);
-    padding: 24px auto;
-    margin: 20px auto;
-    overflow-x: auto;
-    height: 20rem;
-    width: 90%;
-    border: 2px dashed var(--blue);
-}
-
-#content main .upload-cont> div i {
-    font-size: 45px;
-    margin: 10px 0;
-}
-
-#content main .upload-cont> div h2, #content main .upload-cont> div h3 {
-    margin: 5px 5px;
-    text-align: center;
-}
-
-#content main .upload-cont> div button {
-    height: 36px;
-    padding: 0 16px;
-    border: none;
-    border-radius: 36px;
-    background: var(--blue);
-    color: var(--light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-gap: 10px;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-#content main .upload-cont> div button:hover {
-    background-color: #3c91e6b6;
-}
-
-/* footer */
-
-footer {
-    display: flex;
-    padding: 1rem 0;
-    background: var(--light);
-    color: var(--dark);
-    justify-content: center;
-    align-items: center;
-    font-family: var(--lato);
+    .modal .upload-cont{
+        min-width: 90vw;
+    }
 }

@@ -6,6 +6,31 @@
     <title>MammoAi</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <script src="https://unpkg.com/markerjs2/markerjs2.js"></script>
+    <script>
+        function showMarkerArea(target) {
+          const markerArea = new markerjs2.MarkerArea(target);
+          markerArea.availableMarkerTypes = markerArea.ALL_MARKER_TYPES;
+          markerArea.uiStyleSettings.redoButtonVisible = true;
+          markerArea.uiStyleSettings.notesButtonVisible = true;
+          markerArea.uiStyleSettings.zoomButtonVisible = true;
+          markerArea.uiStyleSettings.zoomOutButtonVisible = true;
+          markerArea.uiStyleSettings.clearButtonVisible = true;
+
+          markerArea.settings.displayMode = 'popup';
+          
+          markerArea.addEventListener("render", (event) => (target.src = event.dataUrl));
+          markerArea.addEventListener("beforeclose", (event) => {
+            if (!confirm("Do you want to discard changes?")) {
+                event.preventDefault();
+            }
+            });
+            // markerArea.addEventListener("markercreate", (event) => {
+            // event.markerArea.createNewMarker(markerjs2.FrameMarker);
+            // });
+          markerArea.show();
+        }
+      </script>
 </head>
 <body>
     <section id="sidebar">
@@ -102,13 +127,9 @@
             </div>
 
             <!-- upload image -->
-            <div class="upload-cont">
+            <div class="uploaded-cont">
                 <div>
-                    <i class="fa fa-image"></i>
-                    <h2>Drag and drop image here</h2>
-                    <h3>OR</h3>
-                    <button>Select image</button>
-                    <input type="file" name="" id="" hidden>
+                    <img src="assets/image/profile.jpg" onclick="showMarkerArea(this);" />               
                 </div>
             </div>
         </main>
@@ -118,6 +139,40 @@
             </div>
         </footer>
     </section>
+
+    <!-- upload modal -->
+    <section class="modal">
+        <div class="upload-cont">
+            <div>
+                <i class="fa fa-image"></i>
+                <h2>Drag and drop image here</h2>
+                <h3>OR</h3>
+                <button>Select image</button>
+                <input type="file" name="" id="" hidden>
+            </div>
+        </div>      
+    </section>
     <script src="assets/script.js"></script>
+
+    <script>
+        const imageUpload = document.getElementById('imageUpload');
+        const imageContainer = document.getElementById('imageContainer');
+    
+        imageUpload.addEventListener('change', function() {
+          const file = this.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              const img = document.createElement('img');
+              img.src = e.target.result;
+              img.style.maxWidth = '100%';
+              img.style.maxHeight = '300px';
+              imageContainer.innerHTML = '';
+              imageContainer.appendChild(img);
+            }
+            reader.readAsDataURL(file);
+          }
+        });
+      </script>
 </body>
 </html>
