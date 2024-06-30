@@ -576,7 +576,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
+    /* display: none; */
 }
 
 .modal .upload-cont{

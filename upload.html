@@ -128,8 +128,8 @@
 
             <!-- upload image -->
             <div class="uploaded-cont">
-                <div>
-                    <img src="assets/image/profile.jpg" onclick="showMarkerArea(this);" />               
+                <div id="fileContainer">
+                    <!-- <img src="assets/image/profile.jpg" onclick="showMarkerArea(this);" />                -->
                 </div>
             </div>
         </main>
@@ -148,15 +148,15 @@
                 <h2>Drag and drop image here</h2>
                 <h3>OR</h3>
                 <button>Select image</button>
-                <input type="file" name="" id="" hidden>
+                <input type="file" name="" id="fileUpload">
             </div>
         </div>      
     </section>
     <script src="assets/script.js"></script>
 
     <script>
-        const imageUpload = document.getElementById('imageUpload');
-        const imageContainer = document.getElementById('imageContainer');
+        const imageUpload = document.getElementById('fileUpload');
+        const imageContainer = document.getElementById('fileContainer');
     
         imageUpload.addEventListener('change', function() {
           const file = this.files[0];
@@ -167,6 +167,7 @@
               img.src = e.target.result;
               img.style.maxWidth = '100%';
               img.style.maxHeight = '300px';
+              img.onclick='showMarkerArea(this)';
               imageContainer.innerHTML = '';
               imageContainer.appendChild(img);
             }
