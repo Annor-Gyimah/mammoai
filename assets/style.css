@@ -669,6 +669,7 @@ body {
     max-width: 90%;
     max-height: 90%;
 }
+
 #loadingBar {
     width: 0%;
     height: 20px;
