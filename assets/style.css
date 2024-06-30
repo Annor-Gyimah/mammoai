@@ -664,6 +664,15 @@ body {
     height: fit-content;
     width: 90%;
 }
+
+#loadingBar {
+    width: 0%;
+    height: 20px;
+    background-color: var(--pink);
+    text-align: center;
+    line-height: 20px;
+    color: white;
+  }
 /* footer */
 
 footer {

@@ -129,7 +129,8 @@
             <!-- upload image -->
             <div class="uploaded-cont">
                 <div id="fileContainer">
-                    <!-- <img src="assets/image/profile.jpg" onclick="showMarkerArea(this);" />                -->
+                    <div id="loadingBar"></div>
+                    <img id="displayedImage" src="#" onclick="showMarkerArea(this);" />               
                 </div>
             </div>
         </main>
@@ -141,7 +142,7 @@
     </section>
 
     <!-- upload modal -->
-    <section class="modal">
+    <section class="modal" id="uploadModal">
         <div class="upload-cont">
             <div>
                 <i class="fa fa-image"></i>
@@ -155,21 +156,26 @@
     <script src="assets/script.js"></script>
 
     <script>
+        const uploadModal = document.getElementById('uploadModal');
         const imageUpload = document.getElementById('fileUpload');
         const imageContainer = document.getElementById('fileContainer');
-    
+        const displayedImage = document.getElementById('displayedImage');
+        const loadingBar = document.getElementById('loadingBar');
+        
         imageUpload.addEventListener('change', function() {
           const file = this.files[0];
+          uploadModal.style.display = 'none';
           if (file) {
             const reader = new FileReader();
+            reader.onprogress = function(e) {
+            if (e.lengthComputable) {
+                const progress = (e.loaded / e.total) * 100;
+                loadingBar.style.width = progress + '%';
+            }
+            };
             reader.onload = function(e) {
-              const img = document.createElement('img');
-              img.src = e.target.result;
-              img.style.maxWidth = '100%';
-              img.style.maxHeight = '300px';
-              img.onclick='showMarkerArea(this)';
-              imageContainer.innerHTML = '';
-              imageContainer.appendChild(img);
+              displayedImage.src = e.target.result;
+              loadingBar.style.width = '0%';
             }
             reader.readAsDataURL(file);
           }
