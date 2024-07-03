@@ -714,15 +714,27 @@ body {
 }
 
 .table-data form .fieldset .field input{
-    height: 1.5rem;
+    height: 2rem;
     border: 1px solid var(--dark-grey);
     border-radius: .5rem;
+    padding: .5rem;
 }
 
 .table-data form .fieldset .field textarea{
     height: 3rem;
     border: 1px solid var(--dark-grey);
     border-radius: .5rem;
+}
+
+.table-data form .health-info .field{
+    flex-direction: column;
+    gap: .5rem;
+    align-items: flex-start;
+}
+
+.table-data form .health-info .field textarea{
+    width: 100%;
+    height: 10rem;
 }
 
 
