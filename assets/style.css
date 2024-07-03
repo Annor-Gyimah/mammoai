@@ -581,7 +581,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* display: none; */
+    display: none;
     font-family: var(--poppins);
 }
 
@@ -646,21 +646,22 @@ body {
 
 /* uploaded image */
 
-.uploaded-cont {
+.analysis {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     grid-gap: 24px;
     margin-top: 24px;
     width: 100%;
     color: var(--dark);
-    background: var(--light);
     border-radius: 20px;
 }
 
-.uploaded-cont> div {
+.analysis #fileContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1;
     align-items: center;
     border-radius: 20px;
     background: var(--light-pink);
@@ -668,12 +669,51 @@ body {
     margin: 20px auto;
     overflow-x: auto;
     max-height: 70vh;
-    width: 90%;
 }
 
-.uploaded-cont> div img{
+.analysis> div img{
     max-width: 90%;
     max-height: 90%;
+}
+
+.analysis .details{
+    background: var(--light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 24px auto;
+    margin: 20px auto;
+    overflow-x: auto;
+    padding: 1rem;
+}
+
+.analysis .details form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.analysis .details i{
+    font-size: 5rem;
+}
+
+.analysis .details .field{
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto .5rem auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.analysis .details .field input{
+    height: 2rem;
+    border: 1px solid --dark-grey;
+    border-radius: .5rem;
+    width: 70%;
 }
 
 #loadingBar {

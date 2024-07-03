@@ -121,21 +121,43 @@
                         </li>
                         <li><i class="fa fa-chevron-right"></i></li>
                         <li>
-                            <a href="" class="active">Upload Mammograph</a>
+                            <a href="" class="active">Analysis</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <!-- upload image -->
-            <div class="uploaded-cont">
-                <div id="fileContainer">
-                    <!-- <label for="fileUpload" class="upload-btn">Select File</button>
-                    <input type="file" name="" class="file-upload" id="fileUpload" accept="image/*" hidden> -->
-                    <img id="displayedImage" class="hidden" src="#" onclick="showMarkerArea(this);" />               
-                    <div id="loadingBar"></div>
+            <section>
+                <div class="analysis">
+                    <div id="fileContainer">
+                        <!-- <label for="fileUpload" class="upload-btn">Select File</button>
+                        <input type="file" name="" class="file-upload" id="fileUpload" accept="image/*" hidden> -->
+                        <img id="displayedImage" class="hidden" src="#" onclick="showMarkerArea(this);" />               
+                        <div id="loadingBar"></div>
+                    </div>
+                    <div class="details">
+                        <form action="">
+                            <div>
+                                <i class="fa fa-user-circle"></i>
+                            </div>
+                            <div class="field">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="">
+                            </div>
+                            <div class="field">
+                                <label for="age">Age</label>
+                                <input type="text" name="name" id="">
+                            </div>
+                            <div class="field">
+                                <label for="gender">Gender</label>
+                                <input type="radio" name="gender" id="" value="male"> Male
+                                <input type="radio" name="gender" id="" value="female"> Female
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </section>
         </main>
         <footer>
             <div class="footer">
