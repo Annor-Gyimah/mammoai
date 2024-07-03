@@ -581,7 +581,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
+    /* display: none; */
     font-family: var(--poppins);
 }
 
@@ -624,7 +624,7 @@ body {
     text-align: center;
 }
 
-.upload-cont> div label {
+.upload-btn {
     height: 36px;
     padding: 0 16px;
     border: none;
@@ -657,6 +657,10 @@ body {
     border-radius: 20px;
 }
 
+.analysis h2{
+    margin-bottom: 1rem;
+}
+
 .analysis #fileContainer {
     display: flex;
     flex-direction: column;
@@ -671,10 +675,10 @@ body {
     max-height: 70vh;
 }
 
-.analysis> div img{
-    max-width: 90%;
+/* .analysis #fileContainer img{
+    max-width: 90rem;
     max-height: 90%;
-}
+} */
 
 .analysis .details{
     background: var(--light);
@@ -697,7 +701,7 @@ body {
     gap: 1rem;
 }
 
-.analysis .details i{
+.analysis .details .user-icon i{
     font-size: 5rem;
 }
 
@@ -789,7 +793,7 @@ body {
     justify-content: flex-end;
 }
 
-.table-data form button{
+form button{
     height: 36px;
     padding: 0 16px;
     border-radius: 36px;
