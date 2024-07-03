@@ -582,6 +582,7 @@ body {
     justify-content: center;
     align-items: center;
     /* display: none; */
+    font-family: var(--poppins);
 }
 
 .modal .upload-cont{
