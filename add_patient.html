@@ -104,10 +104,10 @@
                         <i class="fa fa-plus-circle"></i>
                         <span class="text">New</span>
                     </a>
-                    <a href="#" class="btn-download">
+                    <!-- <a href="#" class="btn-download">
                         <i class="fa fa-cloud-download"></i>
                         <span class="text">Download PDF</span>
-                    </a>
+                    </a> -->
                 </div>
             </div>
 
@@ -138,85 +138,69 @@
             <div class="table-data">
                 <div class="record">
                     <div class="head">
-                        <h3>Patient Records</h3>
-                        <i class="fa fa-search"></i>
-                        <i class="fa fa-filter"></i>
+                        <h3><i class="fa fa-user"></i> ID: 1234</h3>
+                        <!-- <i class="fa fa-search"></i>
+                        <i class="fa fa-filter"></i> -->
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Age</th>
-                                <th>Gender</th>
-                                <th>Contact</th>
-                                <th>Img. Analysis</th>
-                                <th>Risk Assesment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <a href="#">
-                                    <td>01</td>
-                                    <td>Pateient 1</td>
-                                    <td>21</td>
-                                    <td>M</td>
-                                    <td>0123456789</td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#">
-                                    <td>01</td>
-                                    <td>Pateient 1</td>
-                                    <td>21</td>
-                                    <td>M</td>
-                                    <td>0123456789</td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#">
-                                    <td>01</td>
-                                    <td>Pateient 1</td>
-                                    <td>21</td>
-                                    <td>M</td>
-                                    <td>0123456789</td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#">
-                                    <td>01</td>
-                                    <td>Pateient 1</td>
-                                    <td>21</td>
-                                    <td>M</td>
-                                    <td>0123456789</td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#">
-                                    <td>01</td>
-                                    <td>Pateient 1</td>
-                                    <td>21</td>
-                                    <td>M</td>
-                                    <td>0123456789</td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="report-link">Report</a></td>
-                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                                </a>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form action="">
+                        <fieldset>
+                            <legend>Personal Details</legend>
+                            <div class="fieldset">
+                                <div class="field">
+                                    <label for="fname">Firstname</label>
+                                    <input type="text" name="fname" id="">                           
+                                </div>
+                                <div class="field">
+                                    <label for="lname">Lastname</label>
+                                    <input type="text" name="lname" id="">
+                                </div>
+                                <div class="field">
+                                    <label for="age">Age</label>
+                                    <input type="number" name="age" id="">
+                                </div>
+                                <div class="field gender">
+                                    <label for="gender">Gender</label>
+                                    <input type="radio" name="gender" id="" value="male"> Male
+                                    <input type="radio" name="gender" id="" value="female"> Female
+                                </div>
+                            </div>
+                            <div class="fieldset">
+                                <div class="field">
+                                    <label for="fname">Address</label>
+                                    <textarea name="address" id=""></textarea>                      
+                                </div>
+                                <div class="field">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="tel" name="mobile" id="">
+                                </div>
+                                <div class="field">
+                                    <label for="occu">Occupation</label>
+                                    <input type="text" name="occu" id="">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Health Info</legend>
+                            <div class="fieldset">
+                                <div class="field">
+                                    <label for="date">Date of Mammogram</label>
+                                    <input type="date" name="date" id="">
+                                </div>
+                            </div>
+                            <div class="fieldset">
+                                <div class="field">
+                                    <label for="date">Mammogram Image</label>
+                                    <input type="date" name="date" id="">
+                                </div>
+                            </div>
+                            <div class="fieldset">
+                                <div class="field">
+                                    <label for="date">Date of Mammogram</label>
+                                    <input type="date" name="date" id="">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
                 <!-- <div class="todo">
                     <div class="head">

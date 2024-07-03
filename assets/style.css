@@ -682,6 +682,50 @@ body {
   .hidden {
     display: none;
   }
+
+
+/* Add Patient */
+
+.table-data form fieldset{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid var(--dark-grey);
+}
+
+.table-data form fieldset legend{
+    padding: .5rem;
+}
+
+.table-data form .fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    max-width: 40%;
+}
+
+.table-data form .fieldset .field{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .5rem;
+    gap: 1.5rem;
+}
+
+.table-data form .fieldset .field input{
+    height: 1.5rem;
+    border: 1px solid var(--dark-grey);
+    border-radius: .5rem;
+}
+
+.table-data form .fieldset .field textarea{
+    height: 3rem;
+    border: 1px solid var(--dark-grey);
+    border-radius: .5rem;
+}
+
+
 /* footer */
 
 footer {
@@ -749,3 +793,4 @@ footer {
         min-width: 90vw;
     }
 }
+
