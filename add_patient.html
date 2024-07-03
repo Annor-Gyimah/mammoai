@@ -9,25 +9,25 @@
 </head>
 <body>
     <section id="sidebar">
-        <a href="index.html" class="brand">
+        <a href="#" class="brand">
             <i class="fa fa-hospital-o"></i>
             <span class="text">MammoAi</span>
         </a>
         <ul class="side-menu top">
-            <li class="active">
-                <a href="#">
+            <li>
+                <a href="index.html">
                     <i class="fa fa-dashboard"></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="records.html">
                     <i class="fa fa-folder"></i>
                     <span class="text">Records</span>
                 </a>
             </li>
             <li>
-                <a href="add_patient.html">
+                <a href="new_patient.html">
                     <i class="fa fa-plus-circle"></i>
                     <span class="text">Add Patient</span>
                 </a>
@@ -88,24 +88,30 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Dashboard</h1>
+                    <h1>Records</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="">Dashboard</a>
                         </li>
                         <li><i class="fa fa-chevron-right"></i></li>
                         <li>
-                            <a href="" class="active">Home</a>
+                            <a href="" class="active">Records</a>
                         </li>
                     </ul>
                 </div>
-                <a href="upload.html" class="btn-upload">
-                    <i class="fa fa-cloud-upload"></i>
-                    <span class="text">Upload Mammogram</span>
-                </a>
+                <div class="right-head">
+                    <a href="#" class="btn-add">
+                        <i class="fa fa-plus-circle"></i>
+                        <span class="text">New</span>
+                    </a>
+                    <a href="#" class="btn-download">
+                        <i class="fa fa-cloud-download"></i>
+                        <span class="text">Download PDF</span>
+                    </a>
+                </div>
             </div>
 
-            <ul class="box-info">
+            <!-- <ul class="box-info">
                 <li>
                     <i class="fa fa-calendar"></i>
                     <span class="text">
@@ -114,89 +120,105 @@
                     </span>
                 </li>
                 <li>
-                    <i class="fa fa-book"></i>
+                    <i class="fa fa-group"></i>
                     <span class="text">
                         <h3>2834</h3>
-                        <p>Records</p>
+                        <p>Visitors</p>
                     </span>
                 </li>
                 <li>
                     <i class="fa fa-dollar"></i>
                     <span class="text">
-                        <h3>09</h3>
-                        <p>Appointments</p>
+                        <h3>$2543</h3>
+                        <p>Total Sales</p>
                     </span>
                 </li>
-            </ul>
+            </ul> -->
 
             <div class="table-data">
                 <div class="record">
                     <div class="head">
-                        <h3>Recent Analysis</h3>
+                        <h3>Patient Records</h3>
                         <i class="fa fa-search"></i>
                         <i class="fa fa-filter"></i>
                     </div>
                     <table>
                         <thead>
                             <tr>
+                                <th>ID</th>
                                 <th>Name</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Contact</th>
+                                <th>Img. Analysis</th>
+                                <th>Risk Assesment</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status completed">Completed</span></td>
+                                <a href="#">
+                                    <td>01</td>
+                                    <td>Pateient 1</td>
+                                    <td>21</td>
+                                    <td>M</td>
+                                    <td>0123456789</td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
                                 </a>
                             </tr>
                             <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status pending">Pending</span></td>
+                                <a href="#">
+                                    <td>01</td>
+                                    <td>Pateient 1</td>
+                                    <td>21</td>
+                                    <td>M</td>
+                                    <td>0123456789</td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
                                 </a>
                             </tr>
                             <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status pending">Pending</span></td>
+                                <a href="#">
+                                    <td>01</td>
+                                    <td>Pateient 1</td>
+                                    <td>21</td>
+                                    <td>M</td>
+                                    <td>0123456789</td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
                                 </a>
                             </tr>
                             <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status process">Process</span></td>
+                                <a href="#">
+                                    <td>01</td>
+                                    <td>Pateient 1</td>
+                                    <td>21</td>
+                                    <td>M</td>
+                                    <td>0123456789</td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
                                 </a>
                             </tr>
                             <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status completed">Completed</span></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status pending">Pending</span></td>
-                                </a>
-                            </tr>
-                            <tr>
-                                <a href="#"><td>Pateient 1</td>
-                                    <td>10-12-2023</td>
-                                    <td><span class="status process">Process</span></td>
+                                <a href="#">
+                                    <td>01</td>
+                                    <td>Pateient 1</td>
+                                    <td>21</td>
+                                    <td>M</td>
+                                    <td>0123456789</td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="report-link">Report</a></td>
+                                    <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
                                 </a>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="todo">
+                <!-- <div class="todo">
                     <div class="head">
                         <h3>Notifications</h3>
                         <i class="fa fa-filter"></i>
@@ -223,14 +245,14 @@
                             <i class="fa fa-ellipsis-v"></i>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </main>
-    <footer>
-        <div class="footer">
-            <span>&copy;2024 BME4</span>
-        </div>
-    </footer>
+        <footer>
+            <div class="footer">
+                <span>&copy;2024 BME4</span>
+            </div>
+        </footer>
     </section>
     <script src="assets/script.js"></script>
 </body>
