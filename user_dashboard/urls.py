@@ -9,9 +9,10 @@ urlpatterns = [
     path("records", views.records, name="records"),
     path("add_patient", views.add_patient, name="add_patient"),
     path("upload", views.upload, name="upload"),
+    path("notification_mark_as_seen/<id>/", views.notification_mark_as_seen, name='notification_mark_as_seen'),
     # path("booking-detail/<booking_id>/", views.booking_detail, name='booking_detail'),
     # path("notification/", views.notification, name='notification'),
-    # path("notification_mark_as_seen/<id>/", views.notification_mark_as_seen, name='notification_mark_as_seen'),
+    
     # path("bookmark/", views.bookmark, name='bookmark'),
     # path("delete_bookmark/<bid>/", views.delete_bookmark, name="delete_bookmark"),
     # path("add_to_bookmark/", views.add_to_bookmark, name='add_to_bookmark'),
