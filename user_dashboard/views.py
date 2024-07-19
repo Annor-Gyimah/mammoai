@@ -26,9 +26,19 @@ def dashboard(request):
     total_noti = notifications.count() 
     context = {
         "total_noti":total_noti,
+        "notifications":notifications,
     }
     
     return render(request, "user_dashboard/dashboard.html", context)
+
+def notification_mark_as_seen(request, id):
+    noti = Notification.objects.get(id=id)
+    noti.seen = True
+    noti.save()
+    noti.delete()
+    messages.success(request, "Notification Deleted")
+
+    return redirect("user_dashboard:dashboard")
 
 
 @login_required

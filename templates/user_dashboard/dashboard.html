@@ -196,11 +196,16 @@
                     <i class="fa fa-filter"></i>
                 </div>
                 <ul class="todo-list">
-                    <li class="completed">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, atque!</p>
-                        <i class="fa fa-ellipsis-v"></i>
-                    </li>
-                    <li class="completed">
+                    {% for n in notifications %}
+                        {% if n.type == "User Registered" %}
+                            <li class="completed">
+                                <p>Welcome new user, we are excited for you to join us.</p>
+                                <!-- <i class="fa fa-ellipsis-v"></i> -->
+                                <a href="{% url 'user_dashboard:notification_mark_as_seen' n.id %}" class="delete"><i class="fa fa-trash"></i></a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    <!-- <li class="completed">
                         <p>Lorem ipsum dolor sit amet.</p>
                         <i class="fa fa-ellipsis-v"></i>
                     </li>
@@ -215,7 +220,7 @@
                     <li class="not-completed">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, aliquam.</p>
                         <i class="fa fa-ellipsis-v"></i>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
