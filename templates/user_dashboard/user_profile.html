@@ -109,7 +109,7 @@
                 <span class="num">{{total_noti}}</span>
             </a>
             <a href="#" class="profile">
-                <img src="../../static/assets/image/profile.jpg" alt="" id="profile-img">
+                <img src="../../static/assets/image/profile.jpg" alt="" class="profile-img">
             </a>
             <div class="profile-cont hidden" id="profile-cont">
                 <div class="user-profile">
@@ -204,7 +204,6 @@
         const imageContainer = document.getElementById('fileContainer');
         const displayedImage = document.getElementById('displayedImage');
         const loadingBar = document.getElementById('loadingBar');
-        const profileImg = document.getElementById('profile-img');
         const profileCont = document.getElementById('profile-cont')
         
         uploadModal.addEventListener('click', function(event) {
@@ -237,12 +236,20 @@
           }
         });
 
-        profileImg.addEventListener('click', function(event){
-            if(profileCont.classList.contains('hidden')){
-                profileCont.classList.remove('hidden')
-            }else{
-                profileCont.classList.add('hidden')
+        document.addEventListener('click', function(event){
+            if (event.target.classList.contains('profile-img')){
+                if(profileCont.classList.contains('hidden')){
+                    profileCont.classList.remove('hidden')
+                }else{
+                    profileCont.classList.add('hidden')
+                }
+            }else if (!event.target.classList.contains('profile-cont') && !event.target.classList.contains('user-profile')){
+                if(!profileCont.classList.contains('hidden')){
+                    profileCont.classList.add('hidden')
+                }
             }
+
+            
         });
       </script>
 </body>
