@@ -1,0 +1,230 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MammoAi</title>
+    <!-- <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}"> -->
+    <link rel="stylesheet" href="../../static/assets/style.css">
+    <link rel="stylesheet" href="../../static/assets/fonts/font-awesome.min.css">
+    <script src="https://unpkg.com/markerjs2/markerjs2.js"></script>
+    <script>
+        function showMarkerArea(target) {
+          const markerArea = new markerjs2.MarkerArea(target);
+          markerArea.availableMarkerTypes = markerArea.ALL_MARKER_TYPES;
+          markerArea.uiStyleSettings.redoButtonVisible = true;
+          markerArea.uiStyleSettings.notesButtonVisible = true;
+          markerArea.uiStyleSettings.zoomButtonVisible = true;
+          markerArea.uiStyleSettings.zoomOutButtonVisible = true;
+          markerArea.uiStyleSettings.clearButtonVisible = true;
+
+          markerArea.settings.displayMode = 'popup';
+          
+          markerArea.addEventListener("render", (event) => (target.src = event.dataUrl));
+          markerArea.addEventListener("beforeclose", (event) => {
+            if (!confirm("Do you want to discard changes?")) {
+                event.preventDefault();
+            }
+            });
+            // markerArea.addEventListener("markercreate", (event) => {
+            // event.markerArea.createNewMarker(markerjs2.FrameMarker);
+            // });
+          markerArea.show();
+        }
+      </script>
+</head>
+<body>
+    <section id="sidebar">
+        <a href="index.html" class="brand">
+            <img src="{% static 'assets/image/logo.png' %}" alt="logo">
+            <!-- <i class="fa fa-hospital-o"></i> -->
+            <span class="text">MammoAi</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="{% url 'user_dashboard:dashboard' %}">
+                    <i class="fa fa-dashboard"></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'user_dashboard:records' %}">
+                    <i class="fa fa-folder"></i>
+                    <span class="text">Records</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'user_dashboard:add_patient' %}">
+                    <i class="fa fa-plus-circle"></i>
+                    <span class="text">Add Patient</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="{% url 'user_dashboard:upload' %}">
+                    <i class="fa fa-cloud-upload"></i>
+                    <span class="text">Upload Mammograph</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-exclamation-circle"></i>
+                    <span class="text">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-group"></i>
+                    <span class="text">Team</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                    <i class="fa fa-cog"></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'userauths:sign-out' %}"  class="logout">
+                    <i class="fa fa-arrow-left"></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section id="content">
+        <nav>
+            <i class="fa fa-bars"></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" name="" id="" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
+            <a href="" class="notification">
+                <i class="fa fa-bell"></i>
+                <span class="num">{{total_noti}}</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="../../static/assets/image/profile.jpg" alt="">
+            </a>
+        </nav>
+
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Image Analysis</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="">Dashboard</a>
+                        </li>
+                        <li><i class="fa fa-chevron-right"></i></li>
+                        <li>
+                            <a href="" class="active">Analysis</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- upload image -->
+            <section>
+                <div class="analysis">
+                    <div id="fileContainer">
+                        <div id="upload">
+                            <h2>Upload a file to start</h2>
+                            <label for="fileUpload" class="upload-btn">Select File</button>
+                            <input type="file" name="file-upload" class="file-upload" id="fileUpload" accept="image/*" hidden>
+                        </div>
+                        <img id="displayedImage" class="hidden" src="{% static '#' %}" onclick="showMarkerArea(this);" style="max-width: 90%;"/>               
+                        <div id="loadingBar"></div>
+                    </div>
+                    <div class="details">
+                        <form action="">
+                            <div class="user-icon">
+                                <i class="fa fa-user-circle"></i>
+                            </div>
+                            <div class="field">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="">
+                            </div>
+                            <div class="field">
+                                <label for="age">Age</label>
+                                <input type="text" name="name" id="">
+                            </div>
+                            <div class="field">
+                                <label for="gender">Gender</label>
+                                <input type="radio" name="gender" id="" value="male"> Male
+                                <input type="radio" name="gender" id="" value="female"> Female
+                            </div>
+                            <div class="submit-form">
+                                <button><i class="fa fa-save"></i> Save Progress</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer">
+                <span>&copy;2024 BME4</span>
+            </div>
+        </footer>
+    </section>
+
+    <!-- upload modal -->
+    <section class="modal" id="uploadModal">
+        <div class="upload-cont">
+            <div class="file-cont">
+                <i class="fa fa-image"></i>
+                <h2 class="drag-n-drop">Drag and drop image here</h2>
+                <h3>OR</h3>
+                <label for="fileUpload" class="upload-btn">Select File</button>
+                <input type="file" name="" class="file-upload" id="fileUpload" accept="image/*" hidden>
+            </div>
+        </div>      
+    </section>
+    <script src="../../static/assets/script.js"></script>
+
+    <script>
+        const uploadModal = document.getElementById('uploadModal');
+        const imageUpload = document.getElementById('fileUpload');
+        const upload = document.getElementById('upload');
+        const imageContainer = document.getElementById('fileContainer');
+        const displayedImage = document.getElementById('displayedImage');
+        const loadingBar = document.getElementById('loadingBar');
+        
+        uploadModal.addEventListener('click', function(event) {
+            if (!event.target.classList.contains('upload-cont') && !event.target.classList.contains('upload-cont')
+                && !event.target.classList.contains('file-cont') && !event.target.classList.contains('upload-btn')
+                && !event.target.classList.contains('drag-n-drop') && !event.target.classList.contains('fa-image')) {
+                this.classList.add('hidden');
+            }
+        });
+
+        imageUpload.addEventListener('change', function() {
+          const file = this.files[0];
+          uploadModal.style.display = 'none';
+          if (file) {
+            const reader = new FileReader();
+            reader.onprogress = function(e) {
+            if (e.lengthComputable) {
+                const progress = (e.loaded / e.total) * 100;
+                loadingBar.style.width = progress + '%';
+            }
+            };
+            reader.onload = function(e) {
+              displayedImage.src = e.target.result;
+              upload.classList.add('hidden');
+              displayedImage.classList.remove('hidden');
+              loadingBar.style.width = '0%';
+              loadingBar.classList.add('hidden');
+            }
+            reader.readAsDataURL(file);
+          }
+        });
+      </script>
+</body>
+</html>
