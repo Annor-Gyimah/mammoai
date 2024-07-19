@@ -114,10 +114,10 @@
             <div class="profile-cont hidden" id="profile-cont">
                 <div class="user-profile">
                     <img src="../../static/assets/image/profile.jpg" alt="">
-                    <span>Username</span>
-                    <span>usejjkjdjfkjkdkfjkjr@mail.com</span>
-                    <a href="#">Settings</a>
-                    <a href="#">Sign Out</a>
+                    <span><i class="fa fa-user"></i> Username</span>
+                    <span><i class="fa fa-envelope"></i> usejjkjdjfkjkdkfjkjr@mail.com</span>
+                    <a href="#"><i class="fa fa-cog"></i> Settings</a>
+                    <a href="#"><i class="fa fa-arrow-left"></i> Sign Out</a>
                 </div>
             </div>
         </nav>
@@ -125,14 +125,14 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>Image Analysis</h1>
+                    <h1>Profile Settings</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="">Dashboard</a>
                         </li>
                         <li><i class="fa fa-chevron-right"></i></li>
                         <li>
-                            <a href="" class="active">Analysis</a>
+                            <a href="" class="active">Profile</a>
                         </li>
                     </ul>
                 </div>
@@ -140,36 +140,32 @@
 
             <!-- upload image -->
             <section>
-                <div class="analysis">
-                    <div id="fileContainer">
-                        <div id="upload">
-                            <h2>Upload a file to start</h2>
-                            <label for="fileUpload" class="upload-btn">Select File</button>
-                            <input type="file" name="file-upload" class="file-upload" id="fileUpload" accept="image/*" hidden>
-                        </div>
-                        <img id="displayedImage" class="hidden" src="{% static '#' %}" onclick="showMarkerArea(this);" style="max-width: 90%;"/>               
-                        <div id="loadingBar"></div>
-                    </div>
-                    <div class="details">
+                <div class="user-profile">
+                    <div class="edit-profile">
                         <form action="">
-                            <div class="user-icon">
-                                <i class="fa fa-user-circle"></i>
+                            <div class="profile-img">
+                                <img src="../../static/assets/image/profile.jpg" alt="" class="change-profile">
+                                <div><label for="changeProfile"><i class="fa fa-plus"></i></label></div>
+                                <input type="file" name="" id="changeProfile" accept="/image" hidden>
                             </div>
-                            <div class="field">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" id="">
+                            <div class="detail">
+                                <label for="name">Username</label>
+                                <input type="text" name="name" id="" value="admin">
                             </div>
-                            <div class="field">
-                                <label for="age">Age</label>
-                                <input type="text" name="name" id="">
+                            <div class="detail">
+                                <label for="age">Email</label>
+                                <input type="email" name="name" id="" value="user@mail.com">
                             </div>
-                            <div class="field">
-                                <label for="gender">Gender</label>
-                                <input type="radio" name="gender" id="" value="male"> Male
-                                <input type="radio" name="gender" id="" value="female"> Female
+                            <div class="detail">
+                                <label for="pswd_old">Old Password</label>
+                                <input type="password" name="pswd_old" id="">
+                            </div>
+                            <div class="detail">
+                                <label for="pswd_new">New Password</label>
+                                <input type="password" name="pswd_new" id="">
                             </div>
                             <div class="submit-form">
-                                <button><i class="fa fa-save"></i> Save Progress</button>
+                                <button><i class="fa fa-save"></i> Save Changes</button>
                             </div>
                         </form>
                     </div>
@@ -183,74 +179,6 @@
         </footer>
     </section>
 
-    <!-- upload modal -->
-    <section class="modal" id="uploadModal">
-        <div class="upload-cont">
-            <div class="file-cont">
-                <i class="fa fa-image"></i>
-                <h2 class="drag-n-drop">Drag and drop image here</h2>
-                <h3>OR</h3>
-                <label for="fileUpload" class="upload-btn">Select File</button>
-                <input type="file" name="" class="file-upload" id="fileUpload" accept="image/*" hidden>
-            </div>
-        </div>      
-    </section>
     <script src="../../static/assets/script.js"></script>
-
-    <script>
-        const uploadModal = document.getElementById('uploadModal');
-        const imageUpload = document.getElementById('fileUpload');
-        const upload = document.getElementById('upload');
-        const imageContainer = document.getElementById('fileContainer');
-        const displayedImage = document.getElementById('displayedImage');
-        const loadingBar = document.getElementById('loadingBar');
-        const profileCont = document.getElementById('profile-cont')
-        
-        uploadModal.addEventListener('click', function(event) {
-            if (!event.target.classList.contains('upload-cont') && !event.target.classList.contains('upload-cont')
-                && !event.target.classList.contains('file-cont') && !event.target.classList.contains('upload-btn')
-                && !event.target.classList.contains('drag-n-drop') && !event.target.classList.contains('fa-image')) {
-                this.classList.add('hidden');
-            }
-        });
-
-        imageUpload.addEventListener('change', function() {
-          const file = this.files[0];
-          uploadModal.style.display = 'none';
-          if (file) {
-            const reader = new FileReader();
-            reader.onprogress = function(e) {
-            if (e.lengthComputable) {
-                const progress = (e.loaded / e.total) * 100;
-                loadingBar.style.width = progress + '%';
-            }
-            };
-            reader.onload = function(e) {
-              displayedImage.src = e.target.result;
-              upload.classList.add('hidden');
-              displayedImage.classList.remove('hidden');
-              loadingBar.style.width = '0%';
-              loadingBar.classList.add('hidden');
-            }
-            reader.readAsDataURL(file);
-          }
-        });
-
-        document.addEventListener('click', function(event){
-            if (event.target.classList.contains('profile-img')){
-                if(profileCont.classList.contains('hidden')){
-                    profileCont.classList.remove('hidden')
-                }else{
-                    profileCont.classList.add('hidden')
-                }
-            }else if (!event.target.classList.contains('profile-cont') && !event.target.classList.contains('user-profile')){
-                if(!profileCont.classList.contains('hidden')){
-                    profileCont.classList.add('hidden')
-                }
-            }
-
-            
-        });
-      </script>
 </body>
 </html>
