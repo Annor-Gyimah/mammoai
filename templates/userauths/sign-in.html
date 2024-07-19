@@ -1,35 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MammoAi</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/loginstyle.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/loginstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
 </head>
 <body>
     <section class="" style="background-color: transparent;">
         <div class="bg-holder" style="background-image:url(assets/image/bg.svg);">
             <div class="container">
                 <div class="img-cont">
-                    <img src="assets/image/login.jpeg" alt="">
+                    <img src="{% static 'assets/image/login.jpeg' %}" alt="">
                 </div>
                 <div class="form-cont">
                     <div class="logo">
                         <a href="index.html" class="brand">
                             <!-- <i class="fa fa-hospital-o"></i> -->
-                             <img src="assets/image/logo.png" alt="logo">
+                             <img src="{% static 'assets/image/logo.png' %}" alt="logo">
                             <span class="text">MammoAi</span>
                         </a>
                     </div>
-                    <form action="">
+                    <form action="" method="POST">
+                        {% csrf_token %}
                         <h3>Sign into your account</h3>
                         <div class="input-box">
-                            <input type="email" id="" class="" placeholder="Email">
+                            <input type="email" name="email" id="" class="" placeholder="Email">
                         </div>
                         <div class="input-box">
-                            <input type="password" id="" class="" placeholder="Password">
+                            <input type="password" name="password" id="" class="" placeholder="Password">
                         </div>
                         <div class="input-box">
                             <button>Login</button>
@@ -42,13 +45,13 @@
                                 <button style="background-color: #3b5998;"
                                 type="submit"><i class="fa fa-facebook-f"></i> Sign in with facebook</button>
                             </div> -->
-                            <p style="color: #393f81;">Don't have an account? <a href="signup.html"
+                            <p style="color: #393f81;">Don't have an account? <a href="{% url 'userauths:sign-up' %}"
                                 style="color: #393f81;">Register here</a></p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <script src="assets/script.js"></script>
+    <script src="{% static 'assets/script.js' %}"></script>
 </body>
 </html>

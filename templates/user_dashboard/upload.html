@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MammoAi</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
     <script src="https://unpkg.com/markerjs2/markerjs2.js"></script>
     <script>
         function showMarkerArea(target) {
@@ -35,31 +36,31 @@
 <body>
     <section id="sidebar">
         <a href="index.html" class="brand">
-            <img src="assets/image/logo.png" alt="logo">
+            <img src="{% static 'assets/image/logo.png' %}" alt="logo">
             <!-- <i class="fa fa-hospital-o"></i> -->
             <span class="text">MammoAi</span>
         </a>
         <ul class="side-menu top">
             <li>
-                <a href="index.html">
+                <a href="{% url 'user_dashboard:dashboard' %}">
                     <i class="fa fa-dashboard"></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
             <li>
-                <a href="records.html">
+                <a href="{% url 'user_dashboard:records' %}">
                     <i class="fa fa-folder"></i>
                     <span class="text">Records</span>
                 </a>
             </li>
             <li>
-                <a href="add_patient.html">
+                <a href="{% url 'user_dashboard:add_patient' %}">
                     <i class="fa fa-plus-circle"></i>
                     <span class="text">Add Patient</span>
                 </a>
             </li>
             <li class="active">
-                <a href="upload.html">
+                <a href="{% url 'user_dashboard:upload' %}">
                     <i class="fa fa-cloud-upload"></i>
                     <span class="text">Upload Mammograph</span>
                 </a>
@@ -85,14 +86,13 @@
                 </a>
             </li>
             <li>
-                <a href="login.html"  class="logout">
+                <a href="{% url 'userauths:sign-out' %}"  class="logout">
                     <i class="fa fa-arrow-left"></i>
                     <span class="text">Logout</span>
                 </a>
             </li>
         </ul>
     </section>
-
     <section id="content">
         <nav>
             <i class="fa fa-bars"></i>
@@ -104,10 +104,10 @@
             </form>
             <a href="" class="notification">
                 <i class="fa fa-bell"></i>
-                <span class="num">8</span>
+                <span class="num">{{total_noti}}</span>
             </a>
             <a href="#" class="profile">
-                <img src="assets/image/profile.jpg" alt="">
+                <img src="{% static 'assets/image/profile.jpg' %}" alt="">
             </a>
         </nav>
 
@@ -136,7 +136,7 @@
                             <label for="fileUpload" class="upload-btn">Select File</button>
                             <input type="file" name="file-upload" class="file-upload" id="fileUpload" accept="image/*" hidden>
                         </div>
-                        <img id="displayedImage" class="hidden" src="#" onclick="showMarkerArea(this);" style="max-width: 90%;"/>               
+                        <img id="displayedImage" class="hidden" src="{% static '#' %}" onclick="showMarkerArea(this);" style="max-width: 90%;"/>               
                         <div id="loadingBar"></div>
                     </div>
                     <div class="details">
@@ -184,7 +184,7 @@
             </div>
         </div>      
     </section>
-    <script src="assets/script.js"></script>
+    <script src="{% static 'assets/script.js' %}"></script>
 
     <script>
         const uploadModal = document.getElementById('uploadModal');

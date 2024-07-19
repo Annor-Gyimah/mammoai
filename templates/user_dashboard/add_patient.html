@@ -1,0 +1,243 @@
+{% extends 'partials/dashboard_base.html' %}
+{% load static %}
+{% block content %}
+<nav>
+    <i class="fa fa-bars"></i>
+    <form action="#">
+        <div class="form-input">
+            <input type="search" name="" id="" placeholder="Search...">
+            <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+    </form>
+    <a href="" class="notification">
+        <i class="fa fa-bell"></i>
+        <span class="num">{{total_noti}}</span>
+    </a>
+    <a href="#" class="profile">
+        <img src="{% static 'assets/image/profile.jpg' %}" alt="">
+    </a>
+</nav>
+<section id="sidebar">
+    <a href="index.html" class="brand">
+        <img src="{% static 'assets/image/logo.png' %}" alt="logo">
+        <!-- <i class="fa fa-hospital-o"></i> -->
+        <span class="text">MammoAi</span>
+    </a>
+    <ul class="side-menu top">
+        <li>
+            <a href="{% url 'user_dashboard:dashboard' %}">
+                <i class="fa fa-dashboard"></i>
+                <span class="text">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'user_dashboard:records' %}">
+                <i class="fa fa-folder"></i>
+                <span class="text">Records</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="{% url 'user_dashboard:add_patient' %}">
+                <i class="fa fa-plus-circle"></i>
+                <span class="text">Add Patient</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'user_dashboard:upload' %}">
+                <i class="fa fa-cloud-upload"></i>
+                <span class="text">Upload Mammograph</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-exclamation-circle"></i>
+                <span class="text">Help</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-group"></i>
+                <span class="text">Team</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="side-menu">
+        <li>
+            <a href="#">
+                <i class="fa fa-cog"></i>
+                <span class="text">Settings</span>
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'userauths:sign-out' %}"  class="logout">
+                <i class="fa fa-arrow-left"></i>
+                <span class="text">Logout</span>
+            </a>
+        </li>
+    </ul>
+</section>
+<main>
+    <div class="head-title">
+        <div class="left">
+            <h1>Records</h1>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="">Dashboard</a>
+                </li>
+                <li><i class="fa fa-chevron-right"></i></li>
+                <li>
+                    <a href="" class="active">Records</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-head">
+            <a href="#" class="btn-add">
+                <i class="fa fa-plus-circle"></i>
+                <span class="text">New</span>
+            </a>
+            <!-- <a href="#" class="btn-download">
+                <i class="fa fa-cloud-download"></i>
+                <span class="text">Download PDF</span>
+            </a> -->
+        </div>
+    </div>
+
+    <!-- <ul class="box-info">
+        <li>
+            <i class="fa fa-calendar"></i>
+            <span class="text">
+                <h3>Welcome Radiologist</h3>
+                <p>June 20, 2024</p>
+            </span>
+        </li>
+        <li>
+            <i class="fa fa-group"></i>
+            <span class="text">
+                <h3>2834</h3>
+                <p>Visitors</p>
+            </span>
+        </li>
+        <li>
+            <i class="fa fa-dollar"></i>
+            <span class="text">
+                <h3>$2543</h3>
+                <p>Total Sales</p>
+            </span>
+        </li>
+    </ul> -->
+
+    <div class="table-data">
+        <div class="record">
+            <div class="head">
+                <h3><i class="fa fa-user"></i> ID: 1234</h3>
+                <!-- <i class="fa fa-search"></i>
+                <i class="fa fa-filter"></i> -->
+            </div>
+            <form action="">
+                <fieldset>
+                    <legend>Personal Details</legend>
+                    <div class="fieldset">
+                        <div class="field">
+                            <label for="fname">Firstname</label>
+                            <input type="text" name="fname" id="">                           
+                        </div>
+                        <div class="field">
+                            <label for="lname">Lastname</label>
+                            <input type="text" name="lname" id="">
+                        </div>
+                        <div class="field">
+                            <label for="age">Age</label>
+                            <input type="number" name="age" id="">
+                        </div>
+                        <div class="field gender">
+                            <label for="gender">Gender</label>
+                            <input type="radio" name="gender" id="" value="male"> Male
+                            <input type="radio" name="gender" id="" value="female"> Female
+                        </div>
+                    </div>
+                    <div class="fieldset">
+                        <div class="field">
+                            <label for="fname">Address</label>
+                            <textarea name="address" id=""></textarea>                      
+                        </div>
+                        <div class="field">
+                            <label for="mobile">Mobile</label>
+                            <input type="tel" name="mobile" id="">
+                        </div>
+                        <div class="field">
+                            <label for="occu">Occupation</label>
+                            <input type="text" name="occu" id="">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="health-info">
+                    <legend>Health Info</legend>
+                    <div class="fieldset">
+                        <div class="field">
+                            <label for="date">Date of Mammogram</label>
+                            <input type="date" name="date" id="">
+                        </div>
+                        <div class="field">
+                            <label for="bhh">Breast Health History</label>
+                            <textarea name="bhh" id=""></textarea>
+                        </div>
+                    </div>
+                    <div class="fieldset">
+                        <div class="field">
+                            <label for="img">Mammogram Image</label>
+                            <input type="file" name="img" id="">
+                        </div>
+                        <div class="field">
+                            <label for="mh">Medical History</label>
+                            <textarea name="hh" id=""></textarea>
+                        </div>
+                    </div>
+                    <div class="fieldset">
+                        <div class="field">
+                            <label for="raf">Risk Assesment Form</label>
+                            <input type="file" name="raf" id="">
+                        </div>
+                        <div class="field">
+                            <label for="notes">Notes</label>
+                            <textarea name="notes" id=""></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="submit-form">
+                    <button><i class="fa fa-save"></i> Save Progress</button>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="todo">
+            <div class="head">
+                <h3>Notifications</h3>
+                <i class="fa fa-filter"></i>
+            </div>
+            <ul class="todo-list">
+                <li class="completed">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, atque!</p>
+                    <i class="fa fa-ellipsis-v"></i>
+                </li>
+                <li class="completed">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <i class="fa fa-ellipsis-v"></i>
+                </li>
+                <li class="not-completed">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                    <i class="fa fa-ellipsis-v"></i>
+                </li>
+                <li class="completed">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <i class="fa fa-ellipsis-v"></i>
+                </li>
+                <li class="not-completed">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, aliquam.</p>
+                    <i class="fa fa-ellipsis-v"></i>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+</main>
+
+{% endblock %}
+        

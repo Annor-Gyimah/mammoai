@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MammoAi</title>
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+</head>
+<body>
+
+
+    <section id="content">
+        
+
+        {% block content %}
+
+        {% endblock %}
+
+        
+        <footer>
+            <div class="footer">
+                <span>&copy;2024 BME4</span>
+            </div>
+        </footer>
+        {% for message in messages %} 
+            <script type="text/javascript">
+                
+                Swal.fire({
+                    icon: "{{message.tags}}",
+                    title: "{{message}}",
+                    text: "{{message.tags}}",
+                    timer: 5000
+                    
+                    
+                    });
+                
+            </script>
+        {% endfor %}
+    </section>
+    <script src="{% static 'assets/script.js' %}"></script>
+</body>
+</html>
