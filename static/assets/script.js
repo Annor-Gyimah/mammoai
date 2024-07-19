@@ -1,6 +1,7 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 const profileCont = document.getElementById('profile-cont')
 const changeProfile = document.getElementById('change-profile')
+const changeProfileBtn = document.getElementById('profile-btn')
 
 allSideMenu.forEach(item => {
     const li = item.parentElement;
@@ -66,6 +67,11 @@ document.addEventListener('click', function(event){
             profileCont.classList.add('hidden')
         }
     }
-
-    
 });
+
+changeProfile.onmouseenter = () => {
+    changeProfileBtn.classList.remove('hidden')
+}
+changeProfile.onmouseleave = () => {
+    changeProfileBtn.classList.add('hidden')
+}

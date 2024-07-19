@@ -9,31 +9,6 @@
     <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}"> -->
     <link rel="stylesheet" href="../../static/assets/style.css">
     <link rel="stylesheet" href="../../static/assets/fonts/font-awesome.min.css">
-    <script src="https://unpkg.com/markerjs2/markerjs2.js"></script>
-    <script>
-        function showMarkerArea(target) {
-          const markerArea = new markerjs2.MarkerArea(target);
-          markerArea.availableMarkerTypes = markerArea.ALL_MARKER_TYPES;
-          markerArea.uiStyleSettings.redoButtonVisible = true;
-          markerArea.uiStyleSettings.notesButtonVisible = true;
-          markerArea.uiStyleSettings.zoomButtonVisible = true;
-          markerArea.uiStyleSettings.zoomOutButtonVisible = true;
-          markerArea.uiStyleSettings.clearButtonVisible = true;
-
-          markerArea.settings.displayMode = 'popup';
-          
-          markerArea.addEventListener("render", (event) => (target.src = event.dataUrl));
-          markerArea.addEventListener("beforeclose", (event) => {
-            if (!confirm("Do you want to discard changes?")) {
-                event.preventDefault();
-            }
-            });
-            // markerArea.addEventListener("markercreate", (event) => {
-            // event.markerArea.createNewMarker(markerjs2.FrameMarker);
-            // });
-          markerArea.show();
-        }
-      </script>
 </head>
 <body>
     <section id="sidebar">
@@ -116,7 +91,7 @@
                     <img src="../../static/assets/image/profile.jpg" alt="">
                     <span><i class="fa fa-user"></i> Username</span>
                     <span><i class="fa fa-envelope"></i> usejjkjdjfkjkdkfjkjr@mail.com</span>
-                    <a href="#"><i class="fa fa-cog"></i> Settings</a>
+                    <a href="edit_profile.html"><i class="fa fa-cog"></i> Settings</a>
                     <a href="#"><i class="fa fa-arrow-left"></i> Sign Out</a>
                 </div>
             </div>
@@ -144,9 +119,11 @@
                     <div class="edit-profile">
                         <form action="">
                             <div class="profile-img">
-                                <img src="../../static/assets/image/profile.jpg" alt="" class="change-profile">
-                                <div><label for="changeProfile"><i class="fa fa-plus"></i></label></div>
-                                <input type="file" name="" id="changeProfile" accept="/image" hidden>
+                                <img src="../../static/assets/image/profile.jpg" alt="" id="change-profile">
+                                <div class="hidden" id="profile-btn">
+                                    <label for="changeProfile"><i class="fa fa-plus"></i></label>
+                                    <input type="file" name="" id="changeProfile" accept="/image" hidden>
+                                </div>
                             </div>
                             <div class="detail">
                                 <label for="name">Username</label>

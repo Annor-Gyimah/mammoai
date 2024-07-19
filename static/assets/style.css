@@ -589,6 +589,7 @@ body {
     background: var(--light);
     border-radius: 1rem;
     padding: 2rem;
+    margin: 1rem auto;
 }
 
 #content main section .user-profile .edit-profile{
@@ -646,6 +647,10 @@ body {
     border-radius: 1px;
     border: none;
     border-bottom: 1px solid var(--dark);
+}
+
+#content main section .user-profile .edit-profile form button{
+    cursor: pointer;
 }
 /* main */
 
