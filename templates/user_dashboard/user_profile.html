@@ -109,8 +109,17 @@
                 <span class="num">{{total_noti}}</span>
             </a>
             <a href="#" class="profile">
-                <img src="../../static/assets/image/profile.jpg" alt="">
+                <img src="../../static/assets/image/profile.jpg" alt="" id="profile-img">
             </a>
+            <div class="profile-cont hidden" id="profile-cont">
+                <div class="user-profile">
+                    <img src="../../static/assets/image/profile.jpg" alt="">
+                    <span>Username</span>
+                    <span>usejjkjdjfkjkdkfjkjr@mail.com</span>
+                    <a href="#">Settings</a>
+                    <a href="#">Sign Out</a>
+                </div>
+            </div>
         </nav>
 
         <main>
@@ -195,6 +204,8 @@
         const imageContainer = document.getElementById('fileContainer');
         const displayedImage = document.getElementById('displayedImage');
         const loadingBar = document.getElementById('loadingBar');
+        const profileImg = document.getElementById('profile-img');
+        const profileCont = document.getElementById('profile-cont')
         
         uploadModal.addEventListener('click', function(event) {
             if (!event.target.classList.contains('upload-cont') && !event.target.classList.contains('upload-cont')
@@ -224,6 +235,14 @@
             }
             reader.readAsDataURL(file);
           }
+        });
+
+        profileImg.addEventListener('click', function(event){
+            if(profileCont.classList.contains('hidden')){
+                profileCont.classList.remove('hidden')
+            }else{
+                profileCont.classList.add('hidden')
+            }
         });
       </script>
 </body>

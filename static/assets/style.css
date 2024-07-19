@@ -276,6 +276,41 @@ body {
     width: 36px;
     border-radius: 50%;
 }
+
+#content .profile-cont{
+    position: absolute;
+    right: 1rem;
+    top: 58px;
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 5px 5px 0 var(--light-pink);
+}
+
+#content .profile-cont::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    right: 2.5rem;
+    border-radius: 100% 0 0;
+    box-shadow: 20px -20px 0 var(--light);
+}
+
+#content .profile-cont .user-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#content .profile-cont img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
 /* navbar */
 
 /* main */
