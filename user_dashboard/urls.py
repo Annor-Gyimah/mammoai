@@ -8,9 +8,11 @@ urlpatterns = [
     path("", views.dashboard, name="dashboard"),
     path("records", views.records, name="records"),
     path("add_patient", views.add_patient, name="add_patient"),
+    path('edit_records/<int:pk>', views.edit_records, name='edit_records'),
+    path('delete_records/<int:pk>', views.delete_records, name='delete_records'),
     path("upload", views.upload, name="upload"),
     path("notification_mark_as_seen/<id>/", views.notification_mark_as_seen, name='notification_mark_as_seen'),
-    # path("booking-detail/<booking_id>/", views.booking_detail, name='booking_detail'),
+    
     # path("notification/", views.notification, name='notification'),
     
     # path("bookmark/", views.bookmark, name='bookmark'),

@@ -86,15 +86,15 @@
                 </li>
                 <li><i class="fa fa-chevron-right"></i></li>
                 <li>
-                    <a href="" class="active">Records</a>
+                    <a href="" class="active">Add Records</a>
                 </li>
             </ul>
         </div>
         <div class="right-head">
-            <a href="#" class="btn-add">
+            <!-- <a href="{% url 'user_dashboard:add_patient' %}" class="btn-add">
                 <i class="fa fa-plus-circle"></i>
                 <span class="text">New</span>
-            </a>
+            </a> -->
             <!-- <a href="#" class="btn-download">
                 <i class="fa fa-cloud-download"></i>
                 <span class="text">Download PDF</span>
@@ -129,44 +129,45 @@
     <div class="table-data">
         <div class="record">
             <div class="head">
-                <h3><i class="fa fa-user"></i> ID: 1234</h3>
+                <h3><i class="fa fa-user"></i> ID: {{form.pid.value}}</h3>
                 <!-- <i class="fa fa-search"></i>
                 <i class="fa fa-filter"></i> -->
             </div>
-            <form action="">
+            <div class='head'></div>
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
                 <fieldset>
                     <legend>Personal Details</legend>
                     <div class="fieldset">
                         <div class="field">
                             <label for="fname">Firstname</label>
-                            <input type="text" name="fname" id="">                           
+                            {{ form.firstname }}
                         </div>
                         <div class="field">
                             <label for="lname">Lastname</label>
-                            <input type="text" name="lname" id="">
+                            {{ form.lastname }}
                         </div>
                         <div class="field">
                             <label for="age">Age</label>
-                            <input type="number" name="age" id="">
+                            {{ form.age }}
                         </div>
                         <div class="field gender">
                             <label for="gender">Gender</label>
-                            <input type="radio" name="gender" id="" value="male"> Male
-                            <input type="radio" name="gender" id="" value="female"> Female
+                            {{ form.gender }}
                         </div>
                     </div>
                     <div class="fieldset">
                         <div class="field">
-                            <label for="fname">Address</label>
-                            <textarea name="address" id=""></textarea>                      
+                            <label for="address">Address</label>
+                            {{ form.address }}
                         </div>
                         <div class="field">
-                            <label for="mobile">Mobile</label>
-                            <input type="tel" name="mobile" id="">
+                            <label for="phone">Mobile</label>
+                            {{ form.phone }}
                         </div>
                         <div class="field">
-                            <label for="occu">Occupation</label>
-                            <input type="text" name="occu" id="">
+                            <label for="occupation">Occupation</label>
+                            {{ form.occupation }}
                         </div>
                     </div>
                 </fieldset>
@@ -174,70 +175,65 @@
                     <legend>Health Info</legend>
                     <div class="fieldset">
                         <div class="field">
-                            <label for="date">Date of Mammogram</label>
-                            <input type="date" name="date" id="">
-                        </div>
-                        <div class="field">
                             <label for="bhh">Breast Health History</label>
-                            <textarea name="bhh" id=""></textarea>
+                            {{ form.breast_health }}
                         </div>
                     </div>
                     <div class="fieldset">
                         <div class="field">
-                            <label for="img">Mammogram Image</label>
-                            <input type="file" name="img" id="">
+                            <label for="mammogram_image">Mammogram Image</label>
+                            {{ form.mammogram_image }}
+                            <img id="mammogram_image_preview" alt="Mammogram Image Preview" style="display:none; width: 50px; height: 50px;"/>
+                            {% if record.mammogram_image %}
+                                <img src="{{ record.mammogram_image.url }}" alt="Mammogram Image" style="width: 50px; height: 50px; display: block;"/>
+                            {% endif %}
                         </div>
                         <div class="field">
                             <label for="mh">Medical History</label>
-                            <textarea name="hh" id=""></textarea>
+                            {{ form.medical_history }}
                         </div>
                     </div>
                     <div class="fieldset">
                         <div class="field">
-                            <label for="raf">Risk Assesment Form</label>
-                            <input type="file" name="raf" id="">
+                            <label for="risk_assessment_form">Risk Assessment Form</label>
+                            {{ form.risk_assessment_form }}
+                            <img id="risk_assessment_form_preview" alt="Risk Assessment Form Preview" style="display:none; width: 50px; height: 50px;"/>
+                            {% if record.risk_assessment_form %}
+                                <img src="{{ record.risk_assessment_form.url }}" alt="Risk Assessment Form" style="width: 50px; height: 50px; display: block;"/>
+                            {% endif %}
                         </div>
                         <div class="field">
                             <label for="notes">Notes</label>
-                            <textarea name="notes" id=""></textarea>
+                            {{ form.notes }}
                         </div>
                     </div>
                 </fieldset>
                 <div class="submit-form">
-                    <button><i class="fa fa-save"></i> Save Progress</button>
+                    <button type="submit"><i class="fa fa-save"></i> Save Progress</button>
                 </div>
             </form>
         </div>
-        <!-- <div class="todo">
-            <div class="head">
-                <h3>Notifications</h3>
-                <i class="fa fa-filter"></i>
-            </div>
-            <ul class="todo-list">
-                <li class="completed">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, atque!</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="completed">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="not-completed">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="completed">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="not-completed">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, aliquam.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-            </ul>
-        </div> -->
     </div>
 </main>
+<script>
+    let loadImg = function(event){
+        let output = document.getElementById("mammogram_image_preview");
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.style.display = 'block';
+        output.onload = function(){
+            URL.revokeObjectURL(output.src);
+        }
+    }
+
+    let loadFile = function(event){
+        let output = document.getElementById("risk_assessment_form_preview");
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.style.display = 'block';
+        output.onload = function(){
+            URL.revokeObjectURL(output.src);
+        }
+    }
+</script>
 
 {% endblock %}
         

@@ -93,7 +93,7 @@
             </ul>
         </div>
         <div class="right-head">
-            <a href="#" class="btn-add">
+            <a href="{% url 'user_dashboard:add_patient' %}" class="btn-add">
                 <i class="fa fa-plus-circle"></i>
                 <span class="text">New</span>
             </a>
@@ -145,69 +145,26 @@
                         <th>Contact</th>
                         <th>Img. Analysis</th>
                         <th>Risk Assesment</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for p in patients %}
                     <tr>
                         <a href="#">
-                            <td>01</td>
-                            <td>Pateient 1</td>
-                            <td>21</td>
-                            <td>M</td>
-                            <td>0123456789</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{p.firstname}} {{p.lastname}}</td>
+                            <td>{{p.age}}</td>
+                            <td>{{p.gender}}</td>
+                            <td>{{p.phone}}</td>
                             <td><a href="#" class="report-link">Report</a></td>
                             <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
+                            <td><a href="{% url 'user_dashboard:edit_records' p.id  %}" class="edit"><i class="fa fa-pencil"></i></a></td>
+                            <td><a href="{% url 'user_dashboard:delete_records' p.id  %}" class="delete"><i class="fa fa-trash"></i></a></td>
                         </a>
                     </tr>
-                    <tr>
-                        <a href="#">
-                            <td>01</td>
-                            <td>Pateient 1</td>
-                            <td>21</td>
-                            <td>M</td>
-                            <td>0123456789</td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                        </a>
-                    </tr>
-                    <tr>
-                        <a href="#">
-                            <td>01</td>
-                            <td>Pateient 1</td>
-                            <td>21</td>
-                            <td>M</td>
-                            <td>0123456789</td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                        </a>
-                    </tr>
-                    <tr>
-                        <a href="#">
-                            <td>01</td>
-                            <td>Pateient 1</td>
-                            <td>21</td>
-                            <td>M</td>
-                            <td>0123456789</td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                        </a>
-                    </tr>
-                    <tr>
-                        <a href="#">
-                            <td>01</td>
-                            <td>Pateient 1</td>
-                            <td>21</td>
-                            <td>M</td>
-                            <td>0123456789</td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="report-link">Report</a></td>
-                            <td><a href="#" class="delete"><i class="fa fa-trash"></i></a></td>
-                        </a>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
