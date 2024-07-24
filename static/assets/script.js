@@ -1,4 +1,7 @@
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+const profileCont = document.getElementById('profile-cont')
+const changeProfile = document.getElementById('change-profile')
+const changeProfileBtn = document.getElementById('profile-btn')
 
 allSideMenu.forEach(item => {
     const li = item.parentElement;
@@ -51,3 +54,24 @@ window.addEventListener('resize', function () {
         searchForm.classList.remove('show');
     }
 })
+
+document.addEventListener('click', function(event){
+    if (event.target.classList.contains('profile-img')){
+        if(profileCont.classList.contains('hidden')){
+            profileCont.classList.remove('hidden')
+        }else{
+            profileCont.classList.add('hidden')
+        }
+    }else if (!event.target.classList.contains('profile-cont') && !event.target.classList.contains('user-profile')){
+        if(!profileCont.classList.contains('hidden')){
+            profileCont.classList.add('hidden')
+        }
+    }
+});
+
+changeProfile.onmouseenter = () => {
+    changeProfileBtn.classList.remove('hidden')
+}
+changeProfile.onmouseleave = () => {
+    changeProfileBtn.classList.add('hidden')
+}
