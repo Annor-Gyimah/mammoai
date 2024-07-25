@@ -23,7 +23,7 @@ urlpatterns = [
     # path("delete_book/<bkid>/", views.delete_book, name="delete_book"),
     # path("add_to_book/", views.add_to_book, name="add_to_book"),
     
-    # path("profile/", views.profile, name="profile"),
+    
     # path("change-password/", views.password_change, name='change_password'),
     # path("password-changed/", views.password_changed, name="password_changed"),
     # path("add_review/", views.add_review, name="add_review")

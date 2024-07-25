@@ -1,4 +1,4 @@
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +34,7 @@
                     <span class="text">Add Patient</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{% url 'user_dashboard:upload' %}">
                     <i class="fa fa-cloud-upload"></i>
                     <span class="text">Upload Mammograph</span>
@@ -54,8 +54,14 @@
             </li>
         </ul>
         <ul class="side-menu">
+            <li class="active">
+                <a href="{% url 'userauths:profile' %}">
+                    <i class="fa fa-user"></i>
+                    <span class="text">Edit Profile</span>
+                </a>
+            </li>
             <li>
-                <a href="#">
+                <a href="{% url 'userauths:password_change' %}">
                     <i class="fa fa-cog"></i>
                     <span class="text">Settings</span>
                 </a>
@@ -82,14 +88,14 @@
                 <span class="num">{{total_noti}}</span>
             </a>
             <a href="#" class="profile">
-                <img src="{% static 'assets/image/profile.jpg'}" alt="" class="profile-img">
+                <img src="{% static 'assets/image/profile.jpg' %}" alt="" class="profile-img">
             </a>
             <div class="profile-cont hidden" id="profile-cont">
                 <div class="user-profile">
-                    <img src="{% static 'assets/image/profile.jpg'}" alt="">
+                    <img src="{% static 'assets/image/profile.jpg' %}" alt="">
                     <span><i class="fa fa-user"></i> Username</span>
                     <span><i class="fa fa-envelope"></i> usejjkjdjfkjkdkfjkjr@mail.com</span>
-                    <a href="edit_profile.html"><i class="fa fa-cog"></i> Settings</a>
+                    <a href="{% url 'userauths:profile' %}"><i class="fa fa-cog"></i> Settings</a>
                     <a href="#"><i class="fa fa-arrow-left"></i> Sign Out</a>
                 </div>
             </div>
@@ -115,30 +121,32 @@
             <section>
                 <div class="user-profile">
                     <div class="edit-profile">
-                        <form action="">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
                             <div class="profile-img">
-                                <img src="{% static 'assets/image/profile.jpg'}" alt="" id="change-profile">
+                                <img  src="{{profile.image.url}}" alt="" id="changeProfile">
                                 <div class="hidden" id="profile-btn">
                                     <label for="changeProfile"><i class="fa fa-plus"></i></label>
-                                    <input type="file" name="" id="changeProfile" accept="/image" hidden>
+                                    <!-- <input type="file" name="image" class="upload"  onchange="loadFile(event);" /> -->
+                                    {{p_form.image}}
                                 </div>
                             </div>
                             <div class="detail">
+                                <label for="name">Full Name</label>
+                                <!-- <input type="text" name="name" id="" value=""> -->
+                                {{p_form.full_name}}
+                            </div>
+                            <div class="detail">
                                 <label for="name">Username</label>
-                                <input type="text" name="name" id="" value="admin">
+                                <!-- <input type="text" name="name" id="" value=""> -->
+                                {{u_form.username}}
                             </div>
                             <div class="detail">
-                                <label for="age">Email</label>
-                                <input type="email" name="name" id="" value="user@mail.com">
+                                <label for="email">Email</label>
+                                <!-- <input type="email" name="name" id="" value=""> -->
+                                {{u_form.email}}
                             </div>
-                            <div class="detail">
-                                <label for="pswd_old">Old Password</label>
-                                <input type="password" name="pswd_old" id="">
-                            </div>
-                            <div class="detail">
-                                <label for="pswd_new">New Password</label>
-                                <input type="password" name="pswd_new" id="">
-                            </div>
+                            
                             <div class="submit-form">
                                 <button><i class="fa fa-save"></i> Save Changes</button>
                             </div>
@@ -153,7 +161,16 @@
             </div>
         </footer>
     </section>
-
-    <script src="{% static 'assets/script.js'}"></script>
+    <script>
+        let loadFile = function(event){
+            let output2 = document.getElementById("changeProfile")
+            output2.src = URL.createObjectURL(event.target.files[0])
+            output2.onload = function(){
+                URL.revokeObjectURL(output2.src)
+    
+            }
+        }
+    </script>
+    <script src="{% static 'assets/script.js' %}"></script>
 </body>
 </html>

@@ -35,3 +35,4 @@ class PatientForm(forms.ModelForm):
             "risk_assessment_form": FileInput(attrs={"onchange": "loadFile(event)", "class": "upload_file"})
         }
         
+

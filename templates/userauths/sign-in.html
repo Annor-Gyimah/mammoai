@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="{% static 'assets/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/loginstyle.css' %}">
     <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+
     <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"> </script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <section class="" style="background-color: transparent;">
@@ -37,7 +42,7 @@
                         <div class="input-box">
                             <button>Login</button>
                         </div>
-                        <a class="forgot" href="#">Forgot password?</a>
+                        <a class="forgot" href="{% url 'userauths:password_reset' %}">Forgot password?</a>
                             <hr>
                             <!-- <div class="sign-with">
                                 <button style="background-color: #dd4b39;"
@@ -52,6 +57,20 @@
             </div>
         </div>
     </section>
+    {% for message in messages %} 
+        <script type="text/javascript">
+            
+            Swal.fire({
+                icon: "{{message.tags}}",
+                title: "{{message}}",
+                text: "{{message.tags}}",
+                timer: 5000
+                
+                
+            });
+            
+        </script>
+    {% endfor %}
     <script src="{% static 'assets/script.js' %}"></script>
 </body>
 </html>

@@ -46,6 +46,9 @@ def notification_mark_as_seen(request, id):
     return redirect("user_dashboard:dashboard")
 
 
+
+
+
 @login_required
 def records(request):
     notifications = Notification.objects.filter(user=request.user, seen=False)

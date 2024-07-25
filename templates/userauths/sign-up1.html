@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MammoAi</title>
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/loginstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"> </script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <section class="" style="background-color: transparent;">
+        <div class="bg-holder" style="background-image:url(assets/image/bg.svg);">
+            <div class="container" style=" height: 90vh;">
+                <div class="img-cont">
+                    <img src="{% static 'assets/image/login.jpeg' %}" alt="">
+                </div>
+                <div class="form-cont">
+                    <div class="logo">
+                        <a href="index.html" class="brand">
+                            <!-- <i class="fa fa-hospital-o"></i> -->
+                            <img src="{% static 'assets/image/logo.png' %}" alt="logo">
+                            <span class="text">MammoAi</span>
+                        </a>
+                    </div>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <h3>Create your account</h3>
+                        <div class="input-box">
+                            {{form.email}}
+                            <!-- <input type="email" id="email" class="" placeholder="Email"> -->
+                        </div>
+                        <div class="input-box">
+                            {{form.full_name}}
+                            <!-- <input type="text" id="full-name" class="" placeholder="Full Name"> -->
+                        </div>
+                        <div class="input-box">
+                            {{form.username}}
+                            <!-- <input type="text" id="username" class="" placeholder="Username"> -->
+                        </div>
+                        
+                        <div class="input-box">
+                            {{form.phone}}
+                            <!-- <input type="text" id="phone" class="" placeholder="Phone Number"> -->
+                        </div>
+                        <div class="input-box">
+                            {{form.password1}}
+                            <!-- <input type="password" id="password" class="" placeholder="Password"> -->
+                        </div>
+                        <div class="input-box">
+                            {{form.password2}}
+                            <!-- <input type="password" id="confirm-password" class="" placeholder="Confirm Password"> -->
+                        </div>
+                        <div class="input-box">
+                            <button>Sign Up</button>
+                        </div>
+                        <a class="forgot" href="{% url 'userauths:sign-in' %}">Already have an account? Sign in here</a>
+                        <hr>
+                        <!-- <div class="sign-with">
+                            <button style="background-color: #dd4b39;"
+                            type="submit"><i class="fa fa-google"></i> Sign up with Google</button>
+                            <button style="background-color: #3b5998;"
+                            type="submit"><i class="fa fa-facebook-f"></i> Sign up with Facebook</button>
+                        </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'assets/script.js' %}"></script>
+</body>
+</html>
