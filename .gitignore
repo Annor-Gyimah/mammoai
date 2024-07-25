@@ -1,10 +1,11 @@
-.vscode
+# Ignore Python bytecode
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Django media files
 media/
 
-
-
-*/__pycache__/*
-
-
+# Ignore SQLite database file
 db.sqlite3
