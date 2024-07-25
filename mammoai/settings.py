@@ -168,7 +168,7 @@ AUTH_USER_MODEL = "userauths.User"
 JAZZMIN_SETTINGS = {
     'site_header': 'Annorion',
     'site_brand': "Mammoai",
-    # 'site_logo': "images/logo.png",
+    'site_logo': "assets/image/logo1.png",
     'copyright': "All right reserved 2023",
     'welcome_sign': "Welcome",
     "topmenu_links": [
@@ -203,12 +203,8 @@ JAZZMIN_SETTINGS = {
         "hostel.Guest": "fas fa-user",
         "hostel.Room": "fas fa-bed",
         "hostel.RoomServices": "fas fa-user-cog",
-        "hostel.Notification": "fas fa-bell",
-        "hostel.Coupon": "fas fa-tag",
-        "hostel.Bookmark": "fas fa-heart",
-
-        "blog_info.Info": "fas fa-th",
-        "blog_info.Comments": "fas fa-user",
+        "mammoai.Notification": "fas fa-bell",
+        
 
     },
     "show_ui_builder": True

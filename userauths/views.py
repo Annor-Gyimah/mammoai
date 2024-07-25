@@ -31,6 +31,14 @@ def activate(request, uidb64, token):
         profile.verified = True
         profile.save()
         user.save()
+        noti = Notification.objects.create(
+            type="User Registered"
+        )
+        if request.user.is_authenticated:
+            noti.user = request.user
+        else:
+            noti.user = None
+        noti.save()
         
 
         messages.success(request, 'Thank you for your email confirmation. Now you can login your account.')
