@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'assets/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
     <script src="https://unpkg.com/markerjs2/markerjs2.js"></script>
+
+    <link rel="icon" href="{% static 'assets/landing-page/images/logo.png' %}" type="image/x-icon"> <!-- For .ico files -->
+
     <script>
         function showMarkerArea(target) {
           const markerArea = new markerjs2.MarkerArea(target);
@@ -102,12 +105,7 @@
     <section id="content">
         <nav>
             <i class="fa fa-bars"></i>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" name="" id="" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
+            {% include 'partials/search_bar.html' %}
             <a href="" class="notification">
                 <i class="fa fa-bell"></i>
                 <span class="num">{{total_noti}}</span>

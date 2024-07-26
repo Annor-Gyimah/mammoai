@@ -12,6 +12,7 @@ urlpatterns = [
     path('delete_records/<int:pk>', views.delete_records, name='delete_records'),
     path("upload", views.upload, name="upload"),
     path("notification_mark_as_seen/<id>/", views.notification_mark_as_seen, name='notification_mark_as_seen'),
+    path('search/', views.search_patient, name='search'),
     
     # path("notification/", views.notification, name='notification'),
     

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.db import models
+from django.db.models import Q
 from django.contrib import messages
 from django.http import JsonResponse
 from userauths.models import Profile
@@ -14,6 +14,7 @@ from userauths.models import Profile, User
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from .models import Notification, Patient
+
 
 
 
@@ -44,6 +45,23 @@ def notification_mark_as_seen(request, id):
     messages.success(request, "Notification Deleted")
 
     return redirect("user_dashboard:dashboard")
+
+
+def search_patient(request):
+    if request.method == "GET":
+        query = request.GET.get("q")
+
+    if query == "":
+        query = None
+
+    if query:
+        patients = Patient.objects.filter(Q(lastname__icontains=query))
+
+    context = {
+        "patients":patients,
+    }
+
+    return render(request, "user_dashboard/records.html", context)
 
 
 
