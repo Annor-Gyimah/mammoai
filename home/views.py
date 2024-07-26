@@ -3,6 +3,7 @@ from .forms import ContactForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from django.contrib import messages
+from .models import Team
 # Create your views here.
 
 
@@ -28,8 +29,13 @@ def index(request):
             return redirect("home:index")
     
     form = ContactForm()
+    # Query the Team model to get all team members
+    team_members = Team.objects.all()
+
+    # Pass the team members to the context
     context = {
-        "form":form,
+        "form": form,
+        "team_members": team_members
     }
 
     return render(request, 'home/index.html', context)
