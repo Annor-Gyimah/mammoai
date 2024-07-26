@@ -7,6 +7,8 @@
     <title>MammoAi</title>
     <link rel="stylesheet" href="{% static 'assets/style.css' %}">
     <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="icon" href="{% static 'assets/landing-page/images/logo.png' %}" type="image/x-icon"> <!-- For .ico files -->
+
 </head>
 <body>
     <section id="sidebar">
@@ -40,7 +42,7 @@
                     <span class="text">Upload Mammograph</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="#">
                     <i class="fa fa-exclamation-circle"></i>
                     <span class="text">Help</span>
@@ -51,7 +53,7 @@
                     <i class="fa fa-group"></i>
                     <span class="text">Team</span>
                 </a>
-            </li>
+            </li> -->
         </ul>
         <ul class="side-menu">
             <li class="active">
@@ -77,12 +79,7 @@
     <section id="content">
         <nav>
             <i class="fa fa-bars"></i>
-            <form action="#">
-                <div class="form-input">
-                    <input type="search" name="" id="" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
+            {% include 'partials/search_bar.html' %}
             <a href="" class="notification">
                 <i class="fa fa-bell"></i>
                 <span class="num">{{total_noti}}</span>

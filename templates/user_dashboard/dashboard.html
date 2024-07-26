@@ -5,12 +5,7 @@
 {% if user.is_authenticated %}
     <nav>
         <i class="fa fa-bars"></i>
-        <form action="#">
-            <div class="form-input">
-                <input type="search" name="" id="" placeholder="Search...">
-                <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
-            </div>
-        </form>
+        {% include 'partials/search_bar.html' %}
         <a href="" class="notification">
             <i class="fa fa-bell"></i>
             <span class="num">{{total_noti}}</span>
@@ -130,13 +125,13 @@
                     <p>Records</p>
                 </span>
             </li>
-            <li>
+            <!-- <li>
                 <i class="fa fa-dollar"></i>
                 <span class="text">
                     <h3>09</h3>
                     <p>Appointments</p>
                 </span>
-            </li>
+            </li> -->
         </ul>
 
         <div class="table-data">

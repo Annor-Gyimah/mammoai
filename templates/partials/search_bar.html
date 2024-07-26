@@ -1,0 +1,7 @@
+<form action="{% url 'user_dashboard:search' %}">
+    {% csrf_token %}
+    <div class="form-input">
+        <input type="search" name="q" placeholder="Search..." value="{{ request.GET.q }}" >
+        <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+    </div>
+</form>
