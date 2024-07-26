@@ -189,12 +189,9 @@
 				{% for member in team_members %}
 					<div class="col-md-3 col-sm-6" style="margin-left: 75px;">
 						<div class="our-team">
-							<div class="pic">
-								<img src="{{ member.image.url }}">
-							</div>
+							
 							<div class="team-content">
 								<h3 class="title">{{ member.fullname }}</h3>
-								<span class="post">{{ member.description }}</span>
 								<ul class="social">
 									{% if member.facebook %}
 										<li><a href="{{ member.facebook }}" target="_blank" class="fa fa-facebook"></a></li>

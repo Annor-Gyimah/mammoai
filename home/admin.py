@@ -3,7 +3,7 @@ from .models import Team
 # Register your models here.
 
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ['thumbnail', 'fullname', 'description']
+    list_display = ['fullname']
     search_fields = ['user', 'email']
     prepopulated_fields = {"slug": ("user",)}
 
