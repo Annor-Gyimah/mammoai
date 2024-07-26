@@ -181,69 +181,34 @@
 			<!-- end title -->
 		
 			<div class="row">
-				<div class="col-md-3 col-sm-6">
-					<div class="our-team">
-						<div class="pic">
-							<img src="{% static 'assets/landing-page/uploads/img-2.jpg'%}">
-						</div>
-						<div class="team-content">
-							<h3 class="title">Micheal Asiedu</h3>
-							<span class="post">Web Designer</span>
-							<ul class="social">
-								<li><a href="#" class="fa fa-facebook"></a></li>
-								<li><a href="#" class="fa fa-linkedin"></a></li>
-							</ul>
+				<style>
+					
+				</style>
+				{% for member in team_members %}
+					<div class="col-md-3 col-sm-6" style="margin-left: 75px;">
+						<div class="our-team">
+							<div class="pic">
+								<img src="{{ member.image.url }}">
+							</div>
+							<div class="team-content">
+								<h3 class="title">{{ member.fullname }}</h3>
+								<span class="post">{{ member.description }}</span>
+								<ul class="social">
+									{% if member.facebook %}
+										<li><a href="{{ member.facebook }}" target="_blank" class="fa fa-facebook"></a></li>
+									{% endif %}
+									{% if member.linkedin %}
+										<li><a href="{{ member.linkedin }}" target="_blank" class="fa fa-linkedin"></a></li>
+									{% endif %}
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
+					{% empty %}
+					<p>No team members found.</p>
+				{% endfor %}
 				
-				<div class="col-md-3 col-sm-6">
-					<div class="our-team">
-						<div class="pic">
-							<img src="{% static 'assets/landing-page/uploads/img-4.jpg'%}">
-						</div>
-						<div class="team-content">
-							<h3 class="title">Micheal Asiedu</h3>
-							<span class="post">Web Designer</span>
-							<ul class="social">
-								<li><a href="#" class="fa fa-facebook"></a></li>
-								<li><a href="#" class="fa fa-twitter"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 				
-				<div class="col-md-3 col-sm-6">
-					<div class="our-team">
-						<div class="pic">
-							<img src="{% static 'assets/landing-page/uploads/img-1.jpg'%}">
-						</div>
-						<div class="team-content">
-							<h3 class="title">Micheal Asiedu</h3>
-							<span class="post">Web Developer</span>
-							<ul class="social">
-								<li><a href="#" class="fa fa-facebook"></a></li>
-								<li><a href="#" class="fa fa-twitter"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-md-3 col-sm-6">
-					<div class="our-team">
-						<div class="pic">
-							<img src="{% static 'assets/landing-page/uploads/img-3.jpg'%}">
-						</div>
-						<div class="team-content">
-							<h3 class="title">Micheal Asiedu</h3>
-							<span class="post">Web Developer</span>
-							<ul class="social">
-								<li><a href="#" class="fa fa-facebook"></a></li>
-								<li><a href="#" class="fa fa-twitter"></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # Custom Apps
     'userauths',
     'user_dashboard',
+    'home',
 
 
     # Third Party Apps
