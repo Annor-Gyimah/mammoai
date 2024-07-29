@@ -49,12 +49,7 @@
                     <span class="text">Add Patient</span>
                 </a>
             </li>
-            <li>
-                <a href="{% url 'user_dashboard:upload' %}">
-                    <i class="fa fa-cloud-upload"></i>
-                    <span class="text">Upload Mammogram</span>
-                </a>
-            </li>
+            
             <!-- <li>
                 <a href="#">
                     <i class="fa fa-exclamation-circle"></i>
@@ -104,10 +99,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="{% url 'user_dashboard:upload' %}" class="btn-upload">
-                <i class="fa fa-cloud-upload"></i>
-                <span class="text">Upload Mammogram</span>
-            </a>
+            
         </div>
 
         <ul class="box-info">
@@ -150,12 +142,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr>
-                            <a href="#"><td>Pateient 1</td>
-                                <td>10-12-2023</td>
+                        {% for s in ss %}
+                        <tr>
+                            <a href="#"><td>Patient {{s.firstname}}</td>
+                                <td>{{s.status_date}}</td>
                                 <td><span class="status completed">Completed</span></td>
                             </a>
-                        </tr> -->
+                        </tr>
+                        {% endfor %}
                         <!-- <tr>
                             <a href="#"><td>Pateient 1</td>
                                 <td>10-12-2023</td>

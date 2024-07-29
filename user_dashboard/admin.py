@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from userauths.models import User, Profile
-from user_dashboard.models import Notification, Patient
+from user_dashboard.models import Notification, Patient, Results, Status
 # Register your models here.
 
 class PatientAdmin(admin.ModelAdmin):
@@ -39,4 +39,6 @@ class PatientAdmin(admin.ModelAdmin):
 
 admin.site.register(Notification)
 admin.site.register(Patient, PatientAdmin)
+admin.site.register(Results)
+admin.site.register(Status)
 

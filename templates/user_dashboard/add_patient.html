@@ -1,6 +1,7 @@
 {% extends 'partials/dashboard_base.html' %}
 {% load static %}
 {% block content %}
+
 <nav>
     <i class="fa fa-bars"></i>
     {% include 'partials/search_bar.html' %}
@@ -46,12 +47,7 @@
                 <span class="text">Add Patient</span>
             </a>
         </li>
-        <li>
-            <a href="{% url 'user_dashboard:upload' %}">
-                <i class="fa fa-cloud-upload"></i>
-                <span class="text">Upload Mammogram</span>
-            </a>
-        </li>
+        
         <!-- <li>
             <a href="#">
                 <i class="fa fa-exclamation-circle"></i>
@@ -152,6 +148,9 @@
                             <label for="age">Age</label>
                             {{ form.age }}
                         </div>
+                        
+                    </div>
+                    <div class="fieldset">
                         <div class="field gender">
                             <label for="gender">Gender</label>
                             {{ form.gender }}
@@ -173,41 +172,78 @@
                     </div>
                 </fieldset>
                 <fieldset class="health-info">
-                    <legend>Health Info</legend>
+                    <legend>Breast History Info</legend>
                     <div class="fieldset">
                         <div class="field">
-                            <label for="bhh">Breast Health History</label>
-                            {{ form.breast_health }}
+                            <label for="fname">Age Group 5 Years</label>
+                            {{ form.age_group_5_years }}
                         </div>
+                        <div class="field">
+                            <label for="fname">First Degree Hx</label>
+                            {{ form.first_degree_hx }}
+                        </div>
+                        <div class="field">
+                            <label for="lname">Age Menarche</label>
+                            {{ form.age_menarche }}
+                        </div>
+                        <div class="field">
+                            <label for="age">Age First Birth</label>
+                            {{ form.age_first_birth }}
+                        </div>
+                        
                     </div>
+                    <div class="fieldset">
+                        <div class="field gender">
+                            <label for="gender">Birads Breast Density</label>
+                            {{ form.birads_breast_density }}
+                        </div>
+                        <div class="field">
+                            <label for="address">Breast Cancer History</label>
+                            {{ form.breast_cancer_history }}
+                        </div>
+                        <div class="field">
+                            <label for="phone">Current Hrt</label>
+                            {{ form.current_hrt }}
+                        </div>
+                        
+                        
+                        
+                    </div>
+                    <div class="fieldset">
+                        <div class="field">
+                            <label for="phone">Menopause</label>
+                            {{ form.menopaus }}
+                        </div>
+                        <div class="field">
+                            <label for="phone">BMI Group</label>
+                            {{ form.bmi_group }}
+                        </div>
+                        <div class="field">
+                            <label for="phone">Biophx</label>
+                            {{ form.biophx }}
+                        </div>
+                        
+
+                    </div>
+                    
+                </fieldset>
+                <fieldset class="health-info">
+                    <legend>Mammogram Image Upload</legend>
                     <div class="fieldset">
                         <div class="field">
                             <label for="mammogram_image">Mammogram Image</label>
-                            {{ form.mammogram_image }}
-                            <img id="mammogram_image_preview" alt="Mammogram Image Preview" style="display:none; width: 50px; height: 50px;"/>
+                            {{form.mammogram_image}}
+                            <!-- <input type="file" name="filePath" class="upload_img" onchange="loadImg(event)"> -->
+                            <img id="mammogram_image_preview" alt="Mammogram Image Preview" style="display:none; width: 260px; height: 260px;"/>
+                            
+
                             {% if record.mammogram_image %}
-                                <img src="{{ record.mammogram_image.url }}" alt="Mammogram Image" style="width: 50px; height: 50px; display: block;"/>
+                                <img src="{{ record.mammogram_image.url }}" alt="Mammogram Image" style="width: 260px; height: 260px; display: block;"/>
                             {% endif %}
                         </div>
-                        <div class="field">
-                            <label for="mh">Medical History</label>
-                            {{ form.medical_history }}
-                        </div>
+                        
                     </div>
-                    <div class="fieldset">
-                        <div class="field">
-                            <label for="risk_assessment_form">Risk Assessment Form</label>
-                            {{ form.risk_assessment_form }}
-                            <img id="risk_assessment_form_preview" alt="Risk Assessment Form Preview" style="display:none; width: 50px; height: 50px;"/>
-                            {% if record.risk_assessment_form %}
-                                <img src="{{ record.risk_assessment_form.url }}" alt="Risk Assessment Form" style="width: 50px; height: 50px; display: block;"/>
-                            {% endif %}
-                        </div>
-                        <div class="field">
-                            <label for="notes">Notes</label>
-                            {{ form.notes }}
-                        </div>
-                    </div>
+
                 </fieldset>
                 <div class="submit-form">
                     <button type="submit"><i class="fa fa-save"></i> Save Progress</button>
@@ -235,6 +271,8 @@
         }
     }
 </script>
+
+
 
 {% endblock %}
         

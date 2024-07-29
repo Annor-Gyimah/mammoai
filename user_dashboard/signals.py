@@ -15,7 +15,7 @@ def delete_old_files(sender, instance, **kwargs):
     except Patient.DoesNotExist:
         return False
     
-    for field in ['mammogram_image', 'risk_assessment_form']:
+    for field in ['mammogram_image']:
         old_file = getattr(old_instance, field)
         new_file = getattr(instance, field)
         if old_file and old_file != new_file:

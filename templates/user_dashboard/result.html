@@ -1,7 +1,7 @@
 {% extends 'partials/dashboard_base.html' %}
 {% load static %}
-
 {% block content %}
+
 <nav>
     <i class="fa fa-bars"></i>
     {% include 'partials/search_bar.html' %}
@@ -35,13 +35,13 @@
                 <span class="text">Dashboard</span>
             </a>
         </li>
-        <li class="active">
+        <li>
             <a href="{% url 'user_dashboard:records' %}">
                 <i class="fa fa-folder"></i>
                 <span class="text">Records</span>
             </a>
         </li>
-        <li>
+        <li class="active">
             <a href="{% url 'user_dashboard:add_patient' %}">
                 <i class="fa fa-plus-circle"></i>
                 <span class="text">Add Patient</span>
@@ -82,31 +82,21 @@
         </li>
     </ul>
 </section>
-
 <main>
     <div class="head-title">
         <div class="left">
-            <h1>Records</h1>
+            <h1>Results</h1>
             <ul class="breadcrumb">
                 <li>
-                    <a href="{% url 'user_dashboard:dashboard' %}">Dashboard</a>
+                    <a href="">Dashboard</a>
                 </li>
                 <li><i class="fa fa-chevron-right"></i></li>
                 <li>
-                    <a href="" class="active">Records</a>
+                    <a href="" class="active">Patient Results</a>
                 </li>
             </ul>
         </div>
-        <div class="right-head">
-            <a href="{% url 'user_dashboard:add_patient' %}" class="btn-add">
-                <i class="fa fa-plus-circle"></i>
-                <span class="text">New</span>
-            </a>
-            <!-- <a href="#" class="btn-download">
-                <i class="fa fa-cloud-download"></i>
-                <span class="text">Download PDF</span>
-            </a> -->
-        </div>
+        
     </div>
 
     <!-- <ul class="box-info">
@@ -135,73 +125,94 @@
 
     <div class="table-data">
         <div class="record">
-            <div class="head">
-                <h3>Patient Records</h3>
+            <!-- <div class="head">
+                <h3><i class="fa fa-user"></i> ID: </h3>
                 <i class="fa fa-search"></i>
                 <i class="fa fa-filter"></i>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Contact</th>
-                        <th>Analysis Report</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for p in patients %}
-                    <tr>
-                        <a href="#">
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{p.firstname}} {{p.lastname}}</td>
-                            <td>{{p.age}}</td>
-                            <td>{{p.gender}}</td>
-                            <td>{{p.phone}}</td>
-                            <!-- <td><a href="#" class="report-link">Report</a></td> -->
-                            <td><a href="{% url 'user_dashboard:view_invoice' p.id %}" class="report-link">View Report</a></td>
-                            <td><a href="{% url 'user_dashboard:edit_records' p.id  %}" class="edit"><i class="fa fa-pencil"></i></a></td>
-                            <td><a href="{% url 'user_dashboard:delete_records' p.id  %}" class="delete"><i class="fa fa-trash"></i></a></td>
-                        </a>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+            </div> -->
+            <div class='head'></div>
+            
+              
+                <fieldset>
+                  <legend>Mammogram Prediction</legend>
+                  <div class="fieldset">
+                      <div class="field">
+                          <label for="fname">Type:</label>
+                          <br>
+                          {{predicted_class}}
+                      </div>
+                    
+                  </div>
+                  
+                </fieldset>
+                <br>
+                <br>
+                <br>
+                <fieldset class="health-info">
+                  <legend>Mammogram Image Analysis</legend>
+                  
+                  <style>
+                    .img-container {
+                          display: flex;
+                          justify-content: space-between;
+                          margin-bottom: 20px;
+                    }
+                    
+                  </style>
+                  <!-- Image Display Section -->
+                  <div class="img-container">
+                    <div>
+                        <h3>Uploaded Image</h3>
+                        <img  src="{{filePathName}}" alt="Uploaded Image" style="width: 260px; height: 260px;">
+                    </div>
+                    <div>
+                        <h3>Heatmap Image</h3>
+                        <img src="{{heatmap_image}}" alt="Heatmap Image" style="width: 260px; height: 260px;">
+                    </div>
+                  </div>
+                  
+                </fieldset>
+                <br>
+                <br>
+                <br>
+                <fieldset class="health-info">
+                    <legend>Risk Assessment</legend>
+                    <br>
+                    <br>
+                    <br>
+                    <p>{{value}}</p>
+
+                </fieldset>
+                
+           
         </div>
-        <!-- <div class="todo">
-            <div class="head">
-                <h3>Notifications</h3>
-                <i class="fa fa-filter"></i>
-            </div>
-            <ul class="todo-list">
-                <li class="completed">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, atque!</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="completed">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="not-completed">
-                    <p>Lorem ipsum dolor sit amet.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="completed">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-                <li class="not-completed">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem, aliquam.</p>
-                    <i class="fa fa-ellipsis-v"></i>
-                </li>
-            </ul>
-        </div> -->
     </div>
 </main>
+<script>
+    let loadImg = function(event){
+        let output = document.getElementById("mammogram_image_preview");
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.style.display = 'block';
+        output.onload = function(){
+            URL.revokeObjectURL(output.src);
+        }
+    }
+
+    let loadFile = function(event){
+        let output = document.getElementById("risk_assessment_form_preview");
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.style.display = 'block';
+        output.onload = function(){
+            URL.revokeObjectURL(output.src);
+        }
+    }
+</script>
+
+
 
 {% endblock %}
- 
+        
+
+
+
+
